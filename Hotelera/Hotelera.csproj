@@ -52,6 +52,12 @@
     <Compile Include="ClientesWindow.Designer.cs">
       <DependentUpon>ClientesWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="HotelesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelesWindow.Designer.cs">
+      <DependentUpon>HotelesWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,8 +78,17 @@
     <Compile Include="ReservacionesWindow.Designer.cs">
       <DependentUpon>ReservacionesWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="TiposHabitacionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiposHabitacionWindow.Designer.cs">
+      <DependentUpon>TiposHabitacionWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ClientesWindow.resx">
       <DependentUpon>ClientesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelesWindow.resx">
+      <DependentUpon>HotelesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
@@ -93,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReservacionesWindow.resx">
       <DependentUpon>ReservacionesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiposHabitacionWindow.resx">
+      <DependentUpon>TiposHabitacionWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

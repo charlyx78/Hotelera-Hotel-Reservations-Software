@@ -26,9 +26,9 @@ namespace Hotelera
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            ClientesWindow homeOperativoWindow = new ClientesWindow();
+            HotelesWindow hotelesWindow = new HotelesWindow();
             this.Hide();
-            homeOperativoWindow.Show();
+            hotelesWindow.Show();
         }
     }
 }

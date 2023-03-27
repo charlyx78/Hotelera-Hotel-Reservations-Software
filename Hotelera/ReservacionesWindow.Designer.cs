@@ -34,49 +34,43 @@
             this.reservacionesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtFechNac = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnIrALogin = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnIrALogin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtFechNac = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuOperativo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            this.flowLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel12.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,6 +78,12 @@
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.flowLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.flowLayoutPanel12.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -134,112 +134,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1325, 512);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(3, 255);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(232, 34);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Agregar a la reservación";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Controls.Add(this.label3);
-            this.flowLayoutPanel7.Controls.Add(this.numericUpDown2);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 66);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(232, 57);
-            this.flowLayoutPanel7.TabIndex = 27;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(3, 22);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(229, 29);
-            this.numericUpDown2.TabIndex = 26;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Cantidad de personas";
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.label2);
-            this.flowLayoutPanel6.Controls.Add(this.numericUpDown1);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(232, 57);
-            this.flowLayoutPanel6.TabIndex = 25;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 22);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(229, 29);
-            this.numericUpDown1.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Cantidad de habitaciones";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel6);
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel12);
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel5.Controls.Add(this.button3);
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(561, 3);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(240, 461);
-            this.flowLayoutPanel5.TabIndex = 37;
-            // 
-            // flowLayoutPanel12
-            // 
-            this.flowLayoutPanel12.Controls.Add(this.label7);
-            this.flowLayoutPanel12.Controls.Add(this.txtFechNac);
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 129);
-            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(232, 57);
-            this.flowLayoutPanel12.TabIndex = 28;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 19);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Desde";
-            // 
-            // txtFechNac
-            // 
-            this.txtFechNac.Location = new System.Drawing.Point(3, 22);
-            this.txtFechNac.Name = "txtFechNac";
-            this.txtFechNac.Size = new System.Drawing.Size(225, 29);
-            this.txtFechNac.TabIndex = 16;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel4);
@@ -263,42 +157,24 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(230, 479);
             this.flowLayoutPanel4.TabIndex = 34;
             // 
-            // listBox1
+            // label1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(3, 177);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(221, 289);
-            this.listBox1.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Cliente";
             // 
-            // button1
+            // txtNombre
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(3, 137);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 34);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Buscar por RFC";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnIrALogin
-            // 
-            this.btnIrALogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnIrALogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIrALogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIrALogin.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIrALogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIrALogin.Location = new System.Drawing.Point(3, 97);
-            this.btnIrALogin.Name = "btnIrALogin";
-            this.btnIrALogin.Size = new System.Drawing.Size(221, 34);
-            this.btnIrALogin.TabIndex = 31;
-            this.btnIrALogin.Text = "Buscar por apellidos";
-            this.btnIrALogin.UseVisualStyleBackColor = false;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(3, 22);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(221, 29);
+            this.txtNombre.TabIndex = 34;
             // 
             // button2
             // 
@@ -314,15 +190,42 @@
             this.button2.Text = "Buscar por correo";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // btnIrALogin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Cliente";
+            this.btnIrALogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnIrALogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIrALogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIrALogin.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIrALogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnIrALogin.Location = new System.Drawing.Point(3, 97);
+            this.btnIrALogin.Name = "btnIrALogin";
+            this.btnIrALogin.Size = new System.Drawing.Size(221, 34);
+            this.btnIrALogin.TabIndex = 31;
+            this.btnIrALogin.Text = "Buscar por apellidos";
+            this.btnIrALogin.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(3, 137);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(221, 34);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Buscar por RFC";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 19;
+            this.listBox1.Location = new System.Drawing.Point(3, 177);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(221, 289);
+            this.listBox1.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -363,15 +266,6 @@
             this.comboBox2.Size = new System.Drawing.Size(221, 27);
             this.comboBox2.TabIndex = 15;
             // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 19;
-            this.listBox3.Location = new System.Drawing.Point(3, 74);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(221, 384);
-            this.listBox3.TabIndex = 2;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -381,6 +275,15 @@
             this.label9.Size = new System.Drawing.Size(61, 19);
             this.label9.TabIndex = 16;
             this.label9.Text = "Hoteles";
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 19;
+            this.listBox3.Location = new System.Drawing.Point(3, 74);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(221, 384);
+            this.listBox3.TabIndex = 2;
             // 
             // groupBox3
             // 
@@ -410,12 +313,106 @@
             this.dataGridView1.Size = new System.Drawing.Size(552, 461);
             this.dataGridView1.TabIndex = 43;
             // 
-            // dateTimePicker1
+            // flowLayoutPanel5
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 22);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 29);
-            this.dateTimePicker1.TabIndex = 16;
+            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel6);
+            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel7);
+            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel12);
+            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel8);
+            this.flowLayoutPanel5.Controls.Add(this.button3);
+            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(561, 3);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(240, 461);
+            this.flowLayoutPanel5.TabIndex = 37;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.label2);
+            this.flowLayoutPanel6.Controls.Add(this.numericUpDown1);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(232, 57);
+            this.flowLayoutPanel6.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cantidad de habitaciones";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 22);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(229, 29);
+            this.numericUpDown1.TabIndex = 26;
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.label3);
+            this.flowLayoutPanel7.Controls.Add(this.numericUpDown2);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 66);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(232, 57);
+            this.flowLayoutPanel7.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(159, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Cantidad de personas";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(3, 22);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(229, 29);
+            this.numericUpDown2.TabIndex = 26;
+            // 
+            // flowLayoutPanel12
+            // 
+            this.flowLayoutPanel12.Controls.Add(this.label7);
+            this.flowLayoutPanel12.Controls.Add(this.txtFechNac);
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 129);
+            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(232, 57);
+            this.flowLayoutPanel12.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 19);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Desde";
+            // 
+            // txtFechNac
+            // 
+            this.txtFechNac.Location = new System.Drawing.Point(3, 22);
+            this.txtFechNac.Name = "txtFechNac";
+            this.txtFechNac.Size = new System.Drawing.Size(225, 29);
+            this.txtFechNac.TabIndex = 16;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.Controls.Add(this.label4);
+            this.flowLayoutPanel8.Controls.Add(this.dateTimePicker1);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 192);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(232, 57);
+            this.flowLayoutPanel8.TabIndex = 29;
             // 
             // label4
             // 
@@ -427,23 +424,55 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Hasta";
             // 
-            // flowLayoutPanel8
+            // dateTimePicker1
             // 
-            this.flowLayoutPanel8.Controls.Add(this.label4);
-            this.flowLayoutPanel8.Controls.Add(this.dateTimePicker1);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 192);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(232, 57);
-            this.flowLayoutPanel8.TabIndex = 29;
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 22);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(225, 29);
+            this.dateTimePicker1.TabIndex = 16;
             // 
-            // txtNombre
+            // button3
             // 
-            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(3, 22);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(221, 29);
-            this.txtNombre.TabIndex = 34;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(3, 255);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(232, 34);
+            this.button3.TabIndex = 35;
+            this.button3.Text = "Agregar a la reservación";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label5);
+            this.flowLayoutPanel3.Controls.Add(this.textBox1);
+            this.flowLayoutPanel3.Controls.Add(this.button4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 295);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(232, 160);
+            this.flowLayoutPanel3.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 19);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Total";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 22);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(225, 29);
+            this.textBox1.TabIndex = 35;
             // 
             // button4
             // 
@@ -459,35 +488,6 @@
             this.button4.Text = "Pagar";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 29);
-            this.textBox1.TabIndex = 35;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Total";
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.label5);
-            this.flowLayoutPanel3.Controls.Add(this.textBox1);
-            this.flowLayoutPanel3.Controls.Add(this.button4);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 295);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(232, 160);
-            this.flowLayoutPanel3.TabIndex = 30;
-            // 
             // ReservacionesWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -501,19 +501,10 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReservacionesWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReservacionesWindow";
+            this.Text = "Hotelera - Reservaciones";
             this.menuOperativo.ResumeLayout(false);
             this.menuOperativo.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel12.ResumeLayout(false);
-            this.flowLayoutPanel12.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
@@ -523,6 +514,15 @@
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.flowLayoutPanel12.ResumeLayout(false);
+            this.flowLayoutPanel12.PerformLayout();
             this.flowLayoutPanel8.ResumeLayout(false);
             this.flowLayoutPanel8.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
