@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeOperativoWindow.cs">
+    <Compile Include="ClientesWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomeOperativoWindow.Designer.cs">
-      <DependentUpon>HomeOperativoWindow.cs</DependentUpon>
+    <Compile Include="ClientesWindow.Designer.cs">
+      <DependentUpon>ClientesWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.cs">
       <SubType>Form</SubType>
@@ -66,8 +66,14 @@
     <Compile Include="RegistroWindow.Designer.cs">
       <DependentUpon>RegistroWindow.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="HomeOperativoWindow.resx">
-      <DependentUpon>HomeOperativoWindow.cs</DependentUpon>
+    <Compile Include="ReservacionesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservacionesWindow.Designer.cs">
+      <DependentUpon>ReservacionesWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClientesWindow.resx">
+      <DependentUpon>ClientesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="RegistroWindow.resx">
       <DependentUpon>RegistroWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservacionesWindow.resx">
+      <DependentUpon>ReservacionesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
