@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +47,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAmenidadesHabitacionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAmenidadesHabitacionWindow.Designer.cs">
+      <DependentUpon>AddAmenidadesHabitacionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCaracteristicasHabitacionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCaracteristicasHabitacionWindow.Designer.cs">
+      <DependentUpon>AddCaracteristicasHabitacionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiciosAdicionalesHotelWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiciosAdicionalesHotelWindow.Designer.cs">
+      <DependentUpon>AddServiciosAdicionalesHotelWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddHabitacionHotelWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddHabitacionHotelWindow.Designer.cs">
+      <DependentUpon>AddHabitacionHotelWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AmenidadesHabitacionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmenidadesHabitacionWindow.Designer.cs">
+      <DependentUpon>AmenidadesHabitacionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancelacionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelacionWindow.Designer.cs">
+      <DependentUpon>CancelacionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaracteristicasHabitacionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaracteristicasHabitacionWindow.Designer.cs">
+      <DependentUpon>CaracteristicasHabitacionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckInWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckInWindow.Designer.cs">
+      <DependentUpon>CheckInWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckOutWindow.Designer.cs">
+      <DependentUpon>CheckOutWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientesWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientesWindow.Designer.cs">
       <DependentUpon>ClientesWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnlaceDB.cs" />
+    <Compile Include="HabitacionesReservacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HabitacionesReservacion.Designer.cs">
+      <DependentUpon>HabitacionesReservacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialClienteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialClienteWindow.Designer.cs">
+      <DependentUpon>HistorialClienteWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="HotelesWindow.cs">
       <SubType>Form</SubType>
@@ -66,11 +134,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistroWindow.cs">
+    <Compile Include="ReporteOcupacionWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistroWindow.Designer.cs">
-      <DependentUpon>RegistroWindow.cs</DependentUpon>
+    <Compile Include="ReporteOcupacionWindow.Designer.cs">
+      <DependentUpon>ReporteOcupacionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteVentasWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteVentasWindow.Designer.cs">
+      <DependentUpon>ReporteVentasWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ReservacionesWindow.cs">
       <SubType>Form</SubType>
@@ -78,14 +152,77 @@
     <Compile Include="ReservacionesWindow.Designer.cs">
       <DependentUpon>ReservacionesWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReservacionAgregarWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservacionAgregarWindow.Designer.cs">
+      <DependentUpon>ReservacionAgregarWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservacionServiciosAdicionalesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservacionServiciosAdicionalesWindow.Designer.cs">
+      <DependentUpon>ReservacionServiciosAdicionalesWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResumenFacturaWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResumenFacturaWindow.Designer.cs">
+      <DependentUpon>ResumenFacturaWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosAdicionalesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiciosAdicionalesWindow.Designer.cs">
+      <DependentUpon>ServiciosAdicionalesWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="TiposHabitacionWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TiposHabitacionWindow.Designer.cs">
       <DependentUpon>TiposHabitacionWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsuariosWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuariosWindow.Designer.cs">
+      <DependentUpon>UsuariosWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddAmenidadesHabitacionWindow.resx">
+      <DependentUpon>AddAmenidadesHabitacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCaracteristicasHabitacionWindow.resx">
+      <DependentUpon>AddCaracteristicasHabitacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddServiciosAdicionalesHotelWindow.resx">
+      <DependentUpon>AddServiciosAdicionalesHotelWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddHabitacionHotelWindow.resx">
+      <DependentUpon>AddHabitacionHotelWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmenidadesHabitacionWindow.resx">
+      <DependentUpon>AmenidadesHabitacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelacionWindow.resx">
+      <DependentUpon>CancelacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaracteristicasHabitacionWindow.resx">
+      <DependentUpon>CaracteristicasHabitacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckInWindow.resx">
+      <DependentUpon>CheckInWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckOutWindow.resx">
+      <DependentUpon>CheckOutWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientesWindow.resx">
       <DependentUpon>ClientesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HabitacionesReservacion.resx">
+      <DependentUpon>HabitacionesReservacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialClienteWindow.resx">
+      <DependentUpon>HistorialClienteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HotelesWindow.resx">
       <DependentUpon>HotelesWindow.cs</DependentUpon>
@@ -103,14 +240,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegistroWindow.resx">
-      <DependentUpon>RegistroWindow.cs</DependentUpon>
+    <EmbeddedResource Include="ReporteOcupacionWindow.resx">
+      <DependentUpon>ReporteOcupacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVentasWindow.resx">
+      <DependentUpon>ReporteVentasWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReservacionesWindow.resx">
       <DependentUpon>ReservacionesWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReservacionAgregarWindow.resx">
+      <DependentUpon>ReservacionAgregarWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservacionServiciosAdicionalesWindow.resx">
+      <DependentUpon>ReservacionServiciosAdicionalesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumenFacturaWindow.resx">
+      <DependentUpon>ResumenFacturaWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiciosAdicionalesWindow.resx">
+      <DependentUpon>ServiciosAdicionalesWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TiposHabitacionWindow.resx">
       <DependentUpon>TiposHabitacionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuariosWindow.resx">
+      <DependentUpon>UsuariosWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

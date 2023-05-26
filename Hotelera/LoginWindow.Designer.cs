@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnIrARegistro = new System.Windows.Forms.Button();
+            this.chbAdministrador = new System.Windows.Forms.CheckBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtContraseña = new System.Windows.Forms.TextBox();
@@ -39,6 +39,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpFechaOps = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,7 +57,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnIrARegistro);
+            this.panel1.Controls.Add(this.dtpFechaOps);
+            this.panel1.Controls.Add(this.chbAdministrador);
             this.panel1.Controls.Add(this.btnIniciarSesion);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
@@ -66,20 +68,17 @@
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 1;
             // 
-            // btnIrARegistro
+            // chbAdministrador
             // 
-            this.btnIrARegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnIrARegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIrARegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIrARegistro.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIrARegistro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIrARegistro.Location = new System.Drawing.Point(396, 292);
-            this.btnIrARegistro.Name = "btnIrARegistro";
-            this.btnIrARegistro.Size = new System.Drawing.Size(157, 34);
-            this.btnIrARegistro.TabIndex = 5;
-            this.btnIrARegistro.Text = "Registrarse";
-            this.btnIrARegistro.UseVisualStyleBackColor = false;
-            this.btnIrARegistro.Click += new System.EventHandler(this.btnIrARegistro_Click);
+            this.chbAdministrador.AutoSize = true;
+            this.chbAdministrador.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbAdministrador.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAdministrador.Location = new System.Drawing.Point(425, 271);
+            this.chbAdministrador.Name = "chbAdministrador";
+            this.chbAdministrador.Size = new System.Drawing.Size(128, 23);
+            this.chbAdministrador.TabIndex = 6;
+            this.chbAdministrador.Text = "Administrador";
+            this.chbAdministrador.UseVisualStyleBackColor = true;
             // 
             // btnIniciarSesion
             // 
@@ -88,9 +87,9 @@
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(228, 292);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(228, 320);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(157, 34);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(325, 34);
             this.btnIniciarSesion.TabIndex = 4;
             this.btnIniciarSesion.Text = "Iniciar sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
@@ -156,6 +155,14 @@
             this.label1.Text = "Hotelera";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dtpFechaOps
+            // 
+            this.dtpFechaOps.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaOps.Location = new System.Drawing.Point(573, 394);
+            this.dtpFechaOps.Name = "dtpFechaOps";
+            this.dtpFechaOps.Size = new System.Drawing.Size(200, 29);
+            this.dtpFechaOps.TabIndex = 7;
+            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,8 +194,9 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Button btnIrARegistro;
         private System.Windows.Forms.Button btnIniciarSesion;
+        private System.Windows.Forms.CheckBox chbAdministrador;
+        private System.Windows.Forms.DateTimePicker dtpFechaOps;
     }
 }
 

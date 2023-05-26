@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Hotelera
 {
-    public partial class RegistroWindow : Form
+    public partial class CancelacionWindow : Form
     {
-        public RegistroWindow()
+        public CancelacionWindow()
         {
             InitializeComponent();
-        }
-        private void btnIrALogin_Click(object sender, EventArgs e)
-        {
-            LoginWindow loginWindow = new LoginWindow();
-            this.Close();
-            loginWindow.Show();
         }
     }
 }

@@ -32,9 +32,18 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservacionesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hacerReservaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNuevoCliente = new System.Windows.Forms.Button();
+            this.btnEditarCliente = new System.Windows.Forms.Button();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
+            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -58,10 +67,10 @@
             this.txtPais = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRfc = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTel = new System.Windows.Forms.TextBox();
@@ -70,21 +79,21 @@
             this.txtCel = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtReferencia = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
             this.txtFechNac = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnIrALogin = new System.Windows.Forms.Button();
+            this.txtEstadoCivil = new System.Windows.Forms.ComboBox();
+            this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.flowLayoutPanel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel20.SuspendLayout();
+            this.flowLayoutPanel17.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -99,8 +108,6 @@
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel15.SuspendLayout();
             this.flowLayoutPanel16.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -113,7 +120,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1327, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(925, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuOperativo";
             // 
@@ -126,10 +133,27 @@
             // 
             // reservacionesMenuItem
             // 
+            this.reservacionesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hacerReservaciónToolStripMenuItem,
+            this.checkInToolStripMenuItem,
+            this.checkOutToolStripMenuItem});
             this.reservacionesMenuItem.Name = "reservacionesMenuItem";
             this.reservacionesMenuItem.Size = new System.Drawing.Size(120, 23);
             this.reservacionesMenuItem.Text = "Reservaciones";
-            this.reservacionesMenuItem.Click += new System.EventHandler(this.reservacionesMenuItem_Click);
+            // 
+            // hacerReservaciónToolStripMenuItem
+            // 
+            this.hacerReservaciónToolStripMenuItem.Name = "hacerReservaciónToolStripMenuItem";
+            this.hacerReservaciónToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.hacerReservaciónToolStripMenuItem.Text = "Hacer reservación";
+            this.hacerReservaciónToolStripMenuItem.Click += new System.EventHandler(this.hacerReservaciónToolStripMenuItem_Click);
+            // 
+            // checkInToolStripMenuItem
+            // 
+            this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.checkInToolStripMenuItem.Text = "Check In";
+            this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click);
             // 
             // salirMenuItem
             // 
@@ -138,34 +162,118 @@
             this.salirMenuItem.Text = "Salir";
             this.salirMenuItem.Click += new System.EventHandler(this.salirMenuItem_Click);
             // 
-            // dataGridView1
+            // flowLayoutPanel18
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(726, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(577, 513);
-            this.dataGridView1.TabIndex = 1;
+            this.flowLayoutPanel18.Controls.Add(this.dgvClientes);
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(898, 502);
+            this.flowLayoutPanel18.TabIndex = 9;
+            // 
+            // dgvClientes
+            // 
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(895, 497);
+            this.dgvClientes.TabIndex = 1;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel18);
+            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 33);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(901, 837);
+            this.flowLayoutPanel2.TabIndex = 7;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel6);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel9);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel10);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel11);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel12);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel13);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel14);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel15);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel16);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 74);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel20);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel17);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 511);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(717, 316);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(895, 322);
             this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // flowLayoutPanel20
+            // 
+            this.flowLayoutPanel20.Controls.Add(this.btnNuevoCliente);
+            this.flowLayoutPanel20.Controls.Add(this.btnEditarCliente);
+            this.flowLayoutPanel20.Controls.Add(this.btnEliminarCliente);
+            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
+            this.flowLayoutPanel20.Size = new System.Drawing.Size(163, 315);
+            this.flowLayoutPanel20.TabIndex = 35;
+            // 
+            // btnNuevoCliente
+            // 
+            this.btnNuevoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnNuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoCliente.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnNuevoCliente.Location = new System.Drawing.Point(3, 25);
+            this.btnNuevoCliente.Margin = new System.Windows.Forms.Padding(3, 25, 3, 25);
+            this.btnNuevoCliente.Name = "btnNuevoCliente";
+            this.btnNuevoCliente.Size = new System.Drawing.Size(157, 34);
+            this.btnNuevoCliente.TabIndex = 30;
+            this.btnNuevoCliente.Text = "Nuevo";
+            this.btnNuevoCliente.UseVisualStyleBackColor = false;
+            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
+            // 
+            // btnEditarCliente
+            // 
+            this.btnEditarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnEditarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCliente.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEditarCliente.Location = new System.Drawing.Point(3, 87);
+            this.btnEditarCliente.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.btnEditarCliente.Name = "btnEditarCliente";
+            this.btnEditarCliente.Size = new System.Drawing.Size(157, 34);
+            this.btnEditarCliente.TabIndex = 31;
+            this.btnEditarCliente.Text = "Editar";
+            this.btnEditarCliente.UseVisualStyleBackColor = false;
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
+            // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnEliminarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCliente.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminarCliente.Location = new System.Drawing.Point(3, 149);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(157, 34);
+            this.btnEliminarCliente.TabIndex = 32;
+            this.btnEliminarCliente.Text = "Eliminar";
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel8);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel6);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel7);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel9);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel10);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel11);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel12);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel13);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel14);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel15);
+            this.flowLayoutPanel17.Controls.Add(this.flowLayoutPanel16);
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(172, 3);
+            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(714, 315);
+            this.flowLayoutPanel17.TabIndex = 36;
             // 
             // flowLayoutPanel8
             // 
@@ -364,7 +472,7 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.label2);
-            this.flowLayoutPanel3.Controls.Add(this.textBox1);
+            this.flowLayoutPanel3.Controls.Add(this.txtRfc);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(241, 129);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(232, 57);
@@ -380,19 +488,19 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "RFC";
             // 
-            // textBox1
+            // txtRfc
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 29);
-            this.textBox1.TabIndex = 4;
+            this.txtRfc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRfc.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRfc.Location = new System.Drawing.Point(3, 22);
+            this.txtRfc.Name = "txtRfc";
+            this.txtRfc.Size = new System.Drawing.Size(225, 29);
+            this.txtRfc.TabIndex = 4;
             // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.label7);
-            this.flowLayoutPanel4.Controls.Add(this.textBox2);
+            this.flowLayoutPanel4.Controls.Add(this.txtCorreo);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(479, 129);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(232, 57);
@@ -408,14 +516,14 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Correo";
             // 
-            // textBox2
+            // txtCorreo
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(3, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 29);
-            this.textBox2.TabIndex = 4;
+            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCorreo.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(3, 22);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(225, 29);
+            this.txtCorreo.TabIndex = 4;
             // 
             // flowLayoutPanel13
             // 
@@ -444,6 +552,7 @@
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(225, 29);
             this.txtTel.TabIndex = 4;
+            this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
             // flowLayoutPanel14
             // 
@@ -472,11 +581,12 @@
             this.txtCel.Name = "txtCel";
             this.txtCel.Size = new System.Drawing.Size(225, 29);
             this.txtCel.TabIndex = 4;
+            this.txtCel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCel_KeyPress);
             // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Controls.Add(this.label8);
-            this.flowLayoutPanel5.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel5.Controls.Add(this.txtReferencia);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(479, 192);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(232, 57);
@@ -492,13 +602,13 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Referencia";
             // 
-            // comboBox1
+            // txtReferencia
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(225, 27);
-            this.comboBox1.TabIndex = 16;
+            this.txtReferencia.FormattingEnabled = true;
+            this.txtReferencia.Location = new System.Drawing.Point(3, 22);
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.Size = new System.Drawing.Size(225, 27);
+            this.txtReferencia.TabIndex = 16;
             // 
             // flowLayoutPanel15
             // 
@@ -529,7 +639,7 @@
             // flowLayoutPanel16
             // 
             this.flowLayoutPanel16.Controls.Add(this.label9);
-            this.flowLayoutPanel16.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel16.Controls.Add(this.txtEstadoCivil);
             this.flowLayoutPanel16.Location = new System.Drawing.Point(241, 255);
             this.flowLayoutPanel16.Name = "flowLayoutPanel16";
             this.flowLayoutPanel16.Size = new System.Drawing.Size(232, 57);
@@ -545,83 +655,27 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Estado civil";
             // 
-            // comboBox2
+            // txtEstadoCivil
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 22);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(225, 27);
-            this.comboBox2.TabIndex = 16;
+            this.txtEstadoCivil.FormattingEnabled = true;
+            this.txtEstadoCivil.Location = new System.Drawing.Point(3, 22);
+            this.txtEstadoCivil.Name = "txtEstadoCivil";
+            this.txtEstadoCivil.Size = new System.Drawing.Size(225, 27);
+            this.txtEstadoCivil.TabIndex = 16;
             // 
-            // flowLayoutPanel2
+            // checkOutToolStripMenuItem
             // 
-            this.flowLayoutPanel2.Controls.Add(this.panel1);
-            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel2.Controls.Add(this.dataGridView1);
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 35);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1303, 516);
-            this.flowLayoutPanel2.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnIrALogin);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 65);
-            this.panel1.TabIndex = 7;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(554, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 34);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(280, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 34);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Editar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnIrALogin
-            // 
-            this.btnIrALogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnIrALogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIrALogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIrALogin.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIrALogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIrALogin.Location = new System.Drawing.Point(10, 3);
-            this.btnIrALogin.Name = "btnIrALogin";
-            this.btnIrALogin.Size = new System.Drawing.Size(157, 34);
-            this.btnIrALogin.TabIndex = 30;
-            this.btnIrALogin.Text = "Nuevo";
-            this.btnIrALogin.UseVisualStyleBackColor = false;
+            this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
+            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.checkOutToolStripMenuItem.Text = "CheckOut";
+            this.checkOutToolStripMenuItem.Click += new System.EventHandler(this.checkOutToolStripMenuItem_Click);
             // 
             // ClientesWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1327, 563);
+            this.ClientSize = new System.Drawing.Size(925, 882);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -632,10 +686,15 @@
             this.Name = "ClientesWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotelera - Clientes";
+            this.Load += new System.EventHandler(this.ClientesWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.flowLayoutPanel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel20.ResumeLayout(false);
+            this.flowLayoutPanel17.ResumeLayout(false);
             this.flowLayoutPanel8.ResumeLayout(false);
             this.flowLayoutPanel8.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
@@ -664,8 +723,6 @@
             this.flowLayoutPanel15.PerformLayout();
             this.flowLayoutPanel16.ResumeLayout(false);
             this.flowLayoutPanel16.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,8 +734,15 @@
         private System.Windows.Forms.ToolStripMenuItem clientesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservacionesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel20;
+        private System.Windows.Forms.Button btnNuevoCliente;
+        private System.Windows.Forms.Button btnEditarCliente;
+        private System.Windows.Forms.Button btnEliminarCliente;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
@@ -700,31 +764,29 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox txtPais;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRfc;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtCel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox txtReferencia;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker txtFechNac;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnIrALogin;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox txtEstadoCivil;
+        private System.Windows.Forms.ToolStripMenuItem checkInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hacerReservaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;
     }
 }

@@ -17,18 +17,38 @@ namespace Hotelera
             InitializeComponent();
         }
 
-        private void btnIrARegistro_Click(object sender, EventArgs e)
-        {
-            RegistroWindow registroWindow = new RegistroWindow();
-            this.Hide();
-            registroWindow.Show();
-        }
-
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            HotelesWindow hotelesWindow = new HotelesWindow();
-            this.Hide();
-            hotelesWindow.Show();
+            if(chbAdministrador.Checked)
+            {
+                EnlaceDB enlace = new EnlaceDB();
+                if (enlace.Autentificar(txtUsuario.Text.Trim(), txtContraseña.Text.Trim(), "A") != 0)
+                {
+                    int idUsuario = enlace.Autentificar(txtUsuario.Text.Trim(), txtContraseña.Text.Trim(), "A");
+                    HotelesWindow hotelesWindow = new HotelesWindow(idUsuario);
+                    this.Hide();
+                    hotelesWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Correo o contraseña incorrectos, intentelo nuevamente", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                EnlaceDB enlace = new EnlaceDB();
+                if (enlace.Autentificar(txtUsuario.Text.Trim(), txtContraseña.Text.Trim(), "O") != 0)
+                {
+                    int idUsuario = enlace.Autentificar(txtUsuario.Text.Trim(), txtContraseña.Text.Trim(), "O");
+                    ClientesWindow clientesWindow = new ClientesWindow(idUsuario, dtpFechaOps.Value.ToString());
+                    this.Hide();
+                    clientesWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Correo o contraseña incorrectos, intentelo nuevamente", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
