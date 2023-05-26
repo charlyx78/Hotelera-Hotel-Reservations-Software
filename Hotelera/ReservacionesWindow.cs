@@ -117,5 +117,32 @@ namespace Hotelera
                 this.Hide();
             }
         }
+
+        private void clientesMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientesWindow clientesWindow = new ClientesWindow(idUsuario, fechaOps);
+            clientesWindow.Show();
+            this.Hide();
+        }
+
+        private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckInWindow checkInWindow = new CheckInWindow(idUsuario, fechaOps);
+            checkInWindow.ShowDialog();
+            this.Hide();
+        }
+
+        private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckOutWindow checkOutWindow = new CheckOutWindow(idUsuario, fechaOps);
+            checkOutWindow.Show();
+            this.Hide();
+        }
+
+        private void salirMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
     }
 }

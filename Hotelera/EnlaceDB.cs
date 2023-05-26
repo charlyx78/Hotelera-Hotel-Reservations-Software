@@ -864,6 +864,46 @@ namespace Hotelera
             }
             return tabla;
         }
+        public DataTable get_ReporteOcupacion(string opc, string cvePais, int año, string cveCd, int idHotel)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "SP_ReporteOcupacion";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@cvePais", SqlDbType.VarChar, 5);
+                parametro1.Value = cvePais;
+                var parametro2 = _comandosql.Parameters.Add("@año", SqlDbType.Int);
+                parametro2.Value = año;
+                var parametro3 = _comandosql.Parameters.Add("@cveCiudad", SqlDbType.VarChar, 5);
+                parametro3.Value = cveCd;
+                var parametro4 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
+                parametro4.Value = idHotel;
+                var parametro5 = _comandosql.Parameters.Add("@opcion", SqlDbType.VarChar, 3);
+                parametro5.Value = opc;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+            return tabla;
+        }
+
         public DataTable get_ReporteHistorialCliente(string opc, int idCliente, int año)
         {
             var msg = "";

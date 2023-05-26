@@ -57,7 +57,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNivelHab = new System.Windows.Forms.ComboBox();
             this.menuAdministrador = new System.Windows.Forms.MenuStrip();
+            this.no = new System.Windows.Forms.ToolStripMenuItem();
             this.hotelesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviciosAdicionalesDeHotelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeHabitaciónMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.amHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -389,7 +391,7 @@
             // 
             this.menuAdministrador.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuAdministrador.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hotelesMenuItem,
+            this.no,
             this.tiposDeHabitaciónMenuItem,
             this.usuariosMenuItem,
             this.cancelarReservacionMenuItem,
@@ -399,14 +401,31 @@
             this.menuAdministrador.Name = "menuAdministrador";
             this.menuAdministrador.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
             this.menuAdministrador.Size = new System.Drawing.Size(925, 29);
-            this.menuAdministrador.TabIndex = 14;
+            this.menuAdministrador.TabIndex = 9;
             this.menuAdministrador.Text = "menuOperativo";
+            // 
+            // no
+            // 
+            this.no.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hotelesMenuItem,
+            this.serviciosAdicionalesDeHotelMenuItem});
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(73, 23);
+            this.no.Text = "Hoteles";
             // 
             // hotelesMenuItem
             // 
             this.hotelesMenuItem.Name = "hotelesMenuItem";
-            this.hotelesMenuItem.Size = new System.Drawing.Size(73, 23);
+            this.hotelesMenuItem.Size = new System.Drawing.Size(281, 24);
             this.hotelesMenuItem.Text = "Hoteles";
+            this.hotelesMenuItem.Click += new System.EventHandler(this.hotelesMenuItem_Click_1);
+            // 
+            // serviciosAdicionalesDeHotelMenuItem
+            // 
+            this.serviciosAdicionalesDeHotelMenuItem.Name = "serviciosAdicionalesDeHotelMenuItem";
+            this.serviciosAdicionalesDeHotelMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.serviciosAdicionalesDeHotelMenuItem.Text = "Servicios adicionales de hotel";
+            this.serviciosAdicionalesDeHotelMenuItem.Click += new System.EventHandler(this.serviciosAdicionalesDeHotelMenuItem_Click_1);
             // 
             // tiposDeHabitaciónMenuItem
             // 
@@ -423,18 +442,21 @@
             this.tiposHabMenuItem.Name = "tiposHabMenuItem";
             this.tiposHabMenuItem.Size = new System.Drawing.Size(275, 24);
             this.tiposHabMenuItem.Text = "Tipos de habitación";
+            this.tiposHabMenuItem.Click += new System.EventHandler(this.tiposHabMenuItem_Click_1);
             // 
             // amHabMenuItem
             // 
             this.amHabMenuItem.Name = "amHabMenuItem";
             this.amHabMenuItem.Size = new System.Drawing.Size(275, 24);
             this.amHabMenuItem.Text = "Amenidades de habitación";
+            this.amHabMenuItem.Click += new System.EventHandler(this.amHabMenuItem_Click_1);
             // 
             // caractHabMenuItem
             // 
             this.caractHabMenuItem.Name = "caractHabMenuItem";
             this.caractHabMenuItem.Size = new System.Drawing.Size(275, 24);
             this.caractHabMenuItem.Text = "Características de habitación";
+            this.caractHabMenuItem.Click += new System.EventHandler(this.caractHabMenuItem_Click_1);
             // 
             // usuariosMenuItem
             // 
@@ -443,18 +465,21 @@
             this.usuariosMenuItem.Name = "usuariosMenuItem";
             this.usuariosMenuItem.Size = new System.Drawing.Size(82, 23);
             this.usuariosMenuItem.Text = "Usuarios";
+            this.usuariosMenuItem.Click += new System.EventHandler(this.usuariosMenuItem_Click);
             // 
             // habilitarInhabilitarUsuarioMenuItem
             // 
             this.habilitarInhabilitarUsuarioMenuItem.Name = "habilitarInhabilitarUsuarioMenuItem";
             this.habilitarInhabilitarUsuarioMenuItem.Size = new System.Drawing.Size(269, 24);
             this.habilitarInhabilitarUsuarioMenuItem.Text = "Habilitar/Inhabilitar usuario";
+            this.habilitarInhabilitarUsuarioMenuItem.Click += new System.EventHandler(this.habilitarInhabilitarUsuarioMenuItem_Click_1);
             // 
             // cancelarReservacionMenuItem
             // 
             this.cancelarReservacionMenuItem.Name = "cancelarReservacionMenuItem";
             this.cancelarReservacionMenuItem.Size = new System.Drawing.Size(165, 23);
             this.cancelarReservacionMenuItem.Text = "Cancelar reservación";
+            this.cancelarReservacionMenuItem.Click += new System.EventHandler(this.cancelarReservacionMenuItem_Click_1);
             // 
             // reportesMenuItem
             // 
@@ -471,24 +496,28 @@
             this.reporteDeOcupaciónPorHotelMenuItem.Name = "reporteDeOcupaciónPorHotelMenuItem";
             this.reporteDeOcupaciónPorHotelMenuItem.Size = new System.Drawing.Size(296, 24);
             this.reporteDeOcupaciónPorHotelMenuItem.Text = "Reporte de ocupación por hotel";
+            this.reporteDeOcupaciónPorHotelMenuItem.Click += new System.EventHandler(this.reporteDeOcupaciónPorHotelMenuItem_Click_1);
             // 
             // reporteDeVentasMenuItem
             // 
             this.reporteDeVentasMenuItem.Name = "reporteDeVentasMenuItem";
             this.reporteDeVentasMenuItem.Size = new System.Drawing.Size(296, 24);
             this.reporteDeVentasMenuItem.Text = "Reporte de ventas";
+            this.reporteDeVentasMenuItem.Click += new System.EventHandler(this.reporteDeVentasMenuItem_Click_1);
             // 
             // historialDeClienteMenuItem
             // 
             this.historialDeClienteMenuItem.Name = "historialDeClienteMenuItem";
             this.historialDeClienteMenuItem.Size = new System.Drawing.Size(296, 24);
             this.historialDeClienteMenuItem.Text = "Historial de cliente";
+            this.historialDeClienteMenuItem.Click += new System.EventHandler(this.historialDeClienteMenuItem_Click_1);
             // 
             // salirMenuItem
             // 
             this.salirMenuItem.Name = "salirMenuItem";
             this.salirMenuItem.Size = new System.Drawing.Size(52, 23);
             this.salirMenuItem.Text = "Salir";
+            this.salirMenuItem.Click += new System.EventHandler(this.salirMenuItem_Click_2);
             // 
             // TiposHabitacionWindow
             // 
@@ -559,7 +588,9 @@
         private System.Windows.Forms.Button btnVerAmen;
         private System.Windows.Forms.Button btnVerCaract;
         private System.Windows.Forms.MenuStrip menuAdministrador;
+        private System.Windows.Forms.ToolStripMenuItem no;
         private System.Windows.Forms.ToolStripMenuItem hotelesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviciosAdicionalesDeHotelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeHabitaciónMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem amHabMenuItem;

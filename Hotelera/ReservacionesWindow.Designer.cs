@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservacionesWindow));
-            this.menuOperativo = new System.Windows.Forms.MenuStrip();
-            this.clientesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reservacionesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,7 +56,13 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFechaRegistro = new System.Windows.Forms.DateTimePicker();
-            this.menuOperativo.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.clientesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservacionesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hacerReservaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
@@ -69,41 +71,8 @@
             this.flowLayoutPanel10.SuspendLayout();
             this.flowLayoutPanel11.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuOperativo
-            // 
-            this.menuOperativo.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuOperativo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clientesMenuItem,
-            this.reservacionesMenuItem,
-            this.salirMenuItem});
-            this.menuOperativo.Location = new System.Drawing.Point(0, 0);
-            this.menuOperativo.Name = "menuOperativo";
-            this.menuOperativo.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuOperativo.Size = new System.Drawing.Size(1484, 29);
-            this.menuOperativo.TabIndex = 1;
-            this.menuOperativo.Text = "menuOperativo";
-            // 
-            // clientesMenuItem
-            // 
-            this.clientesMenuItem.Name = "clientesMenuItem";
-            this.clientesMenuItem.Size = new System.Drawing.Size(76, 23);
-            this.clientesMenuItem.Text = "Clientes";
-            // 
-            // reservacionesMenuItem
-            // 
-            this.reservacionesMenuItem.Name = "reservacionesMenuItem";
-            this.reservacionesMenuItem.Size = new System.Drawing.Size(120, 23);
-            this.reservacionesMenuItem.Text = "Reservaciones";
-            this.reservacionesMenuItem.Click += new System.EventHandler(this.reservacionesMenuItem_Click);
-            // 
-            // salirMenuItem
-            // 
-            this.salirMenuItem.Name = "salirMenuItem";
-            this.salirMenuItem.Size = new System.Drawing.Size(52, 23);
-            this.salirMenuItem.Text = "Salir";
-            this.salirMenuItem.Click += new System.EventHandler(this.salirMenuItem_Click);
             // 
             // flowLayoutPanel5
             // 
@@ -392,14 +361,72 @@
             this.dtpFechaRegistro.Size = new System.Drawing.Size(702, 29);
             this.dtpFechaRegistro.TabIndex = 16;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesMenuItem,
+            this.reservacionesMenuItem,
+            this.salirMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1484, 29);
+            this.menuStrip1.TabIndex = 44;
+            this.menuStrip1.Text = "menuOperativo";
+            // 
+            // clientesMenuItem
+            // 
+            this.clientesMenuItem.Name = "clientesMenuItem";
+            this.clientesMenuItem.Size = new System.Drawing.Size(76, 23);
+            this.clientesMenuItem.Text = "Clientes";
+            this.clientesMenuItem.Click += new System.EventHandler(this.clientesMenuItem_Click);
+            // 
+            // reservacionesMenuItem
+            // 
+            this.reservacionesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hacerReservaciónToolStripMenuItem,
+            this.checkInToolStripMenuItem,
+            this.checkOutToolStripMenuItem});
+            this.reservacionesMenuItem.Name = "reservacionesMenuItem";
+            this.reservacionesMenuItem.Size = new System.Drawing.Size(120, 23);
+            this.reservacionesMenuItem.Text = "Reservaciones";
+            // 
+            // hacerReservaciónToolStripMenuItem
+            // 
+            this.hacerReservaciónToolStripMenuItem.Name = "hacerReservaciónToolStripMenuItem";
+            this.hacerReservaciónToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.hacerReservaciónToolStripMenuItem.Text = "Hacer reservación";
+            // 
+            // checkInToolStripMenuItem
+            // 
+            this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.checkInToolStripMenuItem.Text = "Check In";
+            this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click);
+            // 
+            // checkOutToolStripMenuItem
+            // 
+            this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
+            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.checkOutToolStripMenuItem.Text = "CheckOut";
+            this.checkOutToolStripMenuItem.Click += new System.EventHandler(this.checkOutToolStripMenuItem_Click);
+            // 
+            // salirMenuItem
+            // 
+            this.salirMenuItem.Name = "salirMenuItem";
+            this.salirMenuItem.Size = new System.Drawing.Size(52, 23);
+            this.salirMenuItem.Text = "Salir";
+            this.salirMenuItem.Click += new System.EventHandler(this.salirMenuItem_Click_1);
+            // 
             // ReservacionesWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1484, 684);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.flowLayoutPanel11);
-            this.Controls.Add(this.menuOperativo);
             this.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -407,8 +434,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotelera - Reservaciones";
             this.Load += new System.EventHandler(this.ReservacionesWindow_Load);
-            this.menuOperativo.ResumeLayout(false);
-            this.menuOperativo.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel12.ResumeLayout(false);
             this.flowLayoutPanel12.PerformLayout();
@@ -424,17 +449,14 @@
             this.flowLayoutPanel11.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuOperativo;
-        private System.Windows.Forms.ToolStripMenuItem clientesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reservacionesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
         private System.Windows.Forms.Label label7;
@@ -462,5 +484,12 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpFechaRegistro;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clientesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reservacionesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hacerReservaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirMenuItem;
     }
 }

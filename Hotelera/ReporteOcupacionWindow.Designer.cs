@@ -37,16 +37,22 @@ namespace Hotelera
             this.txtPais = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtFechNac = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtCiudad = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.txtHotel = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnIrALogin = new System.Windows.Forms.Button();
             this.menuAdministrador = new System.Windows.Forms.MenuStrip();
+            this.no = new System.Windows.Forms.ToolStripMenuItem();
             this.hotelesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviciosAdicionalesDeHotelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeHabitaciónMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.amHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caractHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.habilitarInhabilitarUsuarioMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarReservacionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,21 +61,12 @@ namespace Hotelera
             this.reporteDeVentasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeClienteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnIrALogin = new System.Windows.Forms.Button();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnPais = new System.Windows.Forms.Button();
+            this.btnAno = new System.Windows.Forms.Button();
+            this.btnCd = new System.Windows.Forms.Button();
+            this.btnHotel = new System.Windows.Forms.Button();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,24 +77,25 @@ namespace Hotelera
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            this.menuAdministrador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
+            this.menuAdministrador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.btnPais);
             this.flowLayoutPanel1.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel1.Controls.Add(this.btnAno);
             this.flowLayoutPanel1.Controls.Add(this.groupBox3);
+            this.flowLayoutPanel1.Controls.Add(this.btnCd);
             this.flowLayoutPanel1.Controls.Add(this.groupBox4);
+            this.flowLayoutPanel1.Controls.Add(this.btnHotel);
+            this.flowLayoutPanel1.Controls.Add(this.btnIrALogin);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 32);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1002, 79);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1303, 79);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -138,7 +136,7 @@ namespace Hotelera
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel3);
-            this.groupBox2.Location = new System.Drawing.Point(259, 3);
+            this.groupBox2.Location = new System.Drawing.Point(331, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(242, 69);
             this.groupBox2.TabIndex = 26;
@@ -147,24 +145,16 @@ namespace Hotelera
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.txtFechNac);
+            this.flowLayoutPanel3.Controls.Add(this.txtAno);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(6, 28);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(232, 36);
             this.flowLayoutPanel3.TabIndex = 25;
             // 
-            // txtFechNac
-            // 
-            this.txtFechNac.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechNac.Location = new System.Drawing.Point(3, 3);
-            this.txtFechNac.Name = "txtFechNac";
-            this.txtFechNac.Size = new System.Drawing.Size(225, 29);
-            this.txtFechNac.TabIndex = 17;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox3.Location = new System.Drawing.Point(507, 3);
+            this.groupBox3.Location = new System.Drawing.Point(651, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(242, 69);
             this.groupBox3.TabIndex = 27;
@@ -173,25 +163,25 @@ namespace Hotelera
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel4.Controls.Add(this.txtCiudad);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 28);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(232, 36);
             this.flowLayoutPanel4.TabIndex = 25;
             // 
-            // comboBox2
+            // txtCiudad
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(225, 27);
-            this.comboBox2.TabIndex = 15;
+            this.txtCiudad.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCiudad.FormattingEnabled = true;
+            this.txtCiudad.Location = new System.Drawing.Point(3, 3);
+            this.txtCiudad.Name = "txtCiudad";
+            this.txtCiudad.Size = new System.Drawing.Size(225, 27);
+            this.txtCiudad.TabIndex = 15;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanel5);
-            this.groupBox4.Location = new System.Drawing.Point(755, 3);
+            this.groupBox4.Location = new System.Drawing.Point(971, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(242, 69);
             this.groupBox4.TabIndex = 28;
@@ -200,103 +190,20 @@ namespace Hotelera
             // 
             // flowLayoutPanel5
             // 
-            this.flowLayoutPanel5.Controls.Add(this.comboBox3);
+            this.flowLayoutPanel5.Controls.Add(this.txtHotel);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(6, 28);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(232, 36);
             this.flowLayoutPanel5.TabIndex = 25;
             // 
-            // comboBox3
+            // txtHotel
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 3);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(225, 27);
-            this.comboBox3.TabIndex = 15;
-            // 
-            // menuAdministrador
-            // 
-            this.menuAdministrador.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuAdministrador.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hotelesMenuItem,
-            this.tiposDeHabitaciónMenuItem,
-            this.usuariosMenuItem,
-            this.cancelarReservacionMenuItem,
-            this.reportesMenuItem,
-            this.salirMenuItem});
-            this.menuAdministrador.Location = new System.Drawing.Point(0, 0);
-            this.menuAdministrador.Name = "menuAdministrador";
-            this.menuAdministrador.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuAdministrador.Size = new System.Drawing.Size(1327, 29);
-            this.menuAdministrador.TabIndex = 12;
-            this.menuAdministrador.Text = "Hotelera - Reporte por ocupación de hotel";
-            // 
-            // hotelesMenuItem
-            // 
-            this.hotelesMenuItem.Name = "hotelesMenuItem";
-            this.hotelesMenuItem.Size = new System.Drawing.Size(73, 23);
-            this.hotelesMenuItem.Text = "Hoteles";
-            // 
-            // tiposDeHabitaciónMenuItem
-            // 
-            this.tiposDeHabitaciónMenuItem.Name = "tiposDeHabitaciónMenuItem";
-            this.tiposDeHabitaciónMenuItem.Size = new System.Drawing.Size(155, 23);
-            this.tiposDeHabitaciónMenuItem.Text = "Tipos de habitación";
-            // 
-            // usuariosMenuItem
-            // 
-            this.usuariosMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.habilitarInhabilitarUsuarioMenuItem});
-            this.usuariosMenuItem.Name = "usuariosMenuItem";
-            this.usuariosMenuItem.Size = new System.Drawing.Size(82, 23);
-            this.usuariosMenuItem.Text = "Usuarios";
-            // 
-            // habilitarInhabilitarUsuarioMenuItem
-            // 
-            this.habilitarInhabilitarUsuarioMenuItem.Name = "habilitarInhabilitarUsuarioMenuItem";
-            this.habilitarInhabilitarUsuarioMenuItem.Size = new System.Drawing.Size(269, 24);
-            this.habilitarInhabilitarUsuarioMenuItem.Text = "Habilitar/Inhabilitar usuario";
-            // 
-            // cancelarReservacionMenuItem
-            // 
-            this.cancelarReservacionMenuItem.Name = "cancelarReservacionMenuItem";
-            this.cancelarReservacionMenuItem.Size = new System.Drawing.Size(165, 23);
-            this.cancelarReservacionMenuItem.Text = "Cancelar reservación";
-            // 
-            // reportesMenuItem
-            // 
-            this.reportesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporteDeOcupaciónPorHotelMenuItem,
-            this.reporteDeVentasMenuItem,
-            this.historialDeClienteMenuItem});
-            this.reportesMenuItem.Name = "reportesMenuItem";
-            this.reportesMenuItem.Size = new System.Drawing.Size(83, 23);
-            this.reportesMenuItem.Text = "Reportes";
-            // 
-            // reporteDeOcupaciónPorHotelMenuItem
-            // 
-            this.reporteDeOcupaciónPorHotelMenuItem.Name = "reporteDeOcupaciónPorHotelMenuItem";
-            this.reporteDeOcupaciónPorHotelMenuItem.Size = new System.Drawing.Size(296, 24);
-            this.reporteDeOcupaciónPorHotelMenuItem.Text = "Reporte de ocupación por hotel";
-            // 
-            // reporteDeVentasMenuItem
-            // 
-            this.reporteDeVentasMenuItem.Name = "reporteDeVentasMenuItem";
-            this.reporteDeVentasMenuItem.Size = new System.Drawing.Size(296, 24);
-            this.reporteDeVentasMenuItem.Text = "Reporte de ventas";
-            // 
-            // historialDeClienteMenuItem
-            // 
-            this.historialDeClienteMenuItem.Name = "historialDeClienteMenuItem";
-            this.historialDeClienteMenuItem.Size = new System.Drawing.Size(296, 24);
-            this.historialDeClienteMenuItem.Text = "Historial de cliente";
-            // 
-            // salirMenuItem
-            // 
-            this.salirMenuItem.Name = "salirMenuItem";
-            this.salirMenuItem.Size = new System.Drawing.Size(52, 23);
-            this.salirMenuItem.Text = "Salir";
+            this.txtHotel.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHotel.FormattingEnabled = true;
+            this.txtHotel.Location = new System.Drawing.Point(3, 3);
+            this.txtHotel.Name = "txtHotel";
+            this.txtHotel.Size = new System.Drawing.Size(225, 27);
+            this.txtHotel.TabIndex = 15;
             // 
             // dataGridView1
             // 
@@ -313,179 +220,252 @@ namespace Hotelera
             this.btnIrALogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIrALogin.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIrALogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIrALogin.Location = new System.Drawing.Point(1158, 77);
+            this.btnIrALogin.Location = new System.Drawing.Point(3, 81);
             this.btnIrALogin.Name = "btnIrALogin";
             this.btnIrALogin.Size = new System.Drawing.Size(157, 34);
             this.btnIrALogin.TabIndex = 31;
             this.btnIrALogin.Text = "Buscar";
             this.btnIrALogin.UseVisualStyleBackColor = false;
+            this.btnIrALogin.Click += new System.EventHandler(this.btnIrALogin_Click);
             // 
-            // flowLayoutPanel6
+            // menuAdministrador
             // 
-            this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel9);
-            this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel10);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(12, 430);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(1303, 75);
-            this.flowLayoutPanel6.TabIndex = 32;
+            this.menuAdministrador.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuAdministrador.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.no,
+            this.tiposDeHabitaciónMenuItem,
+            this.usuariosMenuItem,
+            this.cancelarReservacionMenuItem,
+            this.reportesMenuItem,
+            this.salirMenuItem});
+            this.menuAdministrador.Location = new System.Drawing.Point(0, 0);
+            this.menuAdministrador.Name = "menuAdministrador";
+            this.menuAdministrador.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuAdministrador.Size = new System.Drawing.Size(1327, 29);
+            this.menuAdministrador.TabIndex = 33;
+            this.menuAdministrador.Text = "menuOperativo";
             // 
-            // flowLayoutPanel7
+            // no
             // 
-            this.flowLayoutPanel7.Controls.Add(this.label1);
-            this.flowLayoutPanel7.Controls.Add(this.label2);
-            this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(200, 72);
-            this.flowLayoutPanel7.TabIndex = 33;
+            this.no.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hotelesMenuItem,
+            this.serviciosAdicionalesDeHotelMenuItem});
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(73, 23);
+            this.no.Text = "Hoteles";
             // 
-            // label1
+            // hotelesMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 19);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Ciudad";
+            this.hotelesMenuItem.Name = "hotelesMenuItem";
+            this.hotelesMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.hotelesMenuItem.Text = "Hoteles";
+            this.hotelesMenuItem.Click += new System.EventHandler(this.hotelesMenuItem_Click);
             // 
-            // label2
+            // serviciosAdicionalesDeHotelMenuItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 25);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Ciudad";
+            this.serviciosAdicionalesDeHotelMenuItem.Name = "serviciosAdicionalesDeHotelMenuItem";
+            this.serviciosAdicionalesDeHotelMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.serviciosAdicionalesDeHotelMenuItem.Text = "Servicios adicionales de hotel";
+            this.serviciosAdicionalesDeHotelMenuItem.Click += new System.EventHandler(this.serviciosAdicionalesDeHotelMenuItem_Click);
             // 
-            // flowLayoutPanel8
+            // tiposDeHabitaciónMenuItem
             // 
-            this.flowLayoutPanel8.Controls.Add(this.label3);
-            this.flowLayoutPanel8.Controls.Add(this.label4);
-            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(209, 3);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(200, 72);
-            this.flowLayoutPanel8.TabIndex = 35;
+            this.tiposDeHabitaciónMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tiposHabMenuItem,
+            this.amHabMenuItem,
+            this.caractHabMenuItem});
+            this.tiposDeHabitaciónMenuItem.Name = "tiposDeHabitaciónMenuItem";
+            this.tiposDeHabitaciónMenuItem.Size = new System.Drawing.Size(155, 23);
+            this.tiposDeHabitaciónMenuItem.Text = "Tipos de habitación";
             // 
-            // label3
+            // tiposHabMenuItem
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 19);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Hotel";
+            this.tiposHabMenuItem.Name = "tiposHabMenuItem";
+            this.tiposHabMenuItem.Size = new System.Drawing.Size(275, 24);
+            this.tiposHabMenuItem.Text = "Tipos de habitación";
+            this.tiposHabMenuItem.Click += new System.EventHandler(this.tiposHabMenuItem_Click);
             // 
-            // label4
+            // amHabMenuItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 25);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Hotel";
+            this.amHabMenuItem.Name = "amHabMenuItem";
+            this.amHabMenuItem.Size = new System.Drawing.Size(275, 24);
+            this.amHabMenuItem.Text = "Amenidades de habitación";
+            this.amHabMenuItem.Click += new System.EventHandler(this.amHabMenuItem_Click);
             // 
-            // flowLayoutPanel9
+            // caractHabMenuItem
             // 
-            this.flowLayoutPanel9.Controls.Add(this.label5);
-            this.flowLayoutPanel9.Controls.Add(this.label6);
-            this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(415, 3);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(200, 72);
-            this.flowLayoutPanel9.TabIndex = 36;
+            this.caractHabMenuItem.Name = "caractHabMenuItem";
+            this.caractHabMenuItem.Size = new System.Drawing.Size(275, 24);
+            this.caractHabMenuItem.Text = "Características de habitación";
+            this.caractHabMenuItem.Click += new System.EventHandler(this.caractHabMenuItem_Click);
             // 
-            // label5
+            // usuariosMenuItem
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 19);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Año - Mes";
+            this.usuariosMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.habilitarInhabilitarUsuarioMenuItem});
+            this.usuariosMenuItem.Name = "usuariosMenuItem";
+            this.usuariosMenuItem.Size = new System.Drawing.Size(82, 23);
+            this.usuariosMenuItem.Text = "Usuarios";
             // 
-            // label6
+            // habilitarInhabilitarUsuarioMenuItem
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 25);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Año - Mes";
+            this.habilitarInhabilitarUsuarioMenuItem.Name = "habilitarInhabilitarUsuarioMenuItem";
+            this.habilitarInhabilitarUsuarioMenuItem.Size = new System.Drawing.Size(269, 24);
+            this.habilitarInhabilitarUsuarioMenuItem.Text = "Habilitar/Inhabilitar usuario";
+            this.habilitarInhabilitarUsuarioMenuItem.Click += new System.EventHandler(this.habilitarInhabilitarUsuarioMenuItem_Click);
             // 
-            // flowLayoutPanel10
+            // cancelarReservacionMenuItem
             // 
-            this.flowLayoutPanel10.Controls.Add(this.label7);
-            this.flowLayoutPanel10.Controls.Add(this.label8);
-            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(621, 3);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(200, 72);
-            this.flowLayoutPanel10.TabIndex = 37;
+            this.cancelarReservacionMenuItem.Name = "cancelarReservacionMenuItem";
+            this.cancelarReservacionMenuItem.Size = new System.Drawing.Size(165, 23);
+            this.cancelarReservacionMenuItem.Text = "Cancelar reservación";
+            this.cancelarReservacionMenuItem.Click += new System.EventHandler(this.cancelarReservacionMenuItem_Click);
             // 
-            // label7
+            // reportesMenuItem
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(178, 19);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Porcentaje de ocupación";
+            this.reportesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDeOcupaciónPorHotelMenuItem,
+            this.reporteDeVentasMenuItem,
+            this.historialDeClienteMenuItem});
+            this.reportesMenuItem.Name = "reportesMenuItem";
+            this.reportesMenuItem.Size = new System.Drawing.Size(83, 23);
+            this.reportesMenuItem.Text = "Reportes";
             // 
-            // label8
+            // reporteDeOcupaciónPorHotelMenuItem
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 19);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 25);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "XX%";
+            this.reporteDeOcupaciónPorHotelMenuItem.Name = "reporteDeOcupaciónPorHotelMenuItem";
+            this.reporteDeOcupaciónPorHotelMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.reporteDeOcupaciónPorHotelMenuItem.Text = "Reporte de ocupación por hotel";
+            this.reporteDeOcupaciónPorHotelMenuItem.Click += new System.EventHandler(this.reporteDeOcupaciónPorHotelMenuItem_Click);
+            // 
+            // reporteDeVentasMenuItem
+            // 
+            this.reporteDeVentasMenuItem.Name = "reporteDeVentasMenuItem";
+            this.reporteDeVentasMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.reporteDeVentasMenuItem.Text = "Reporte de ventas";
+            this.reporteDeVentasMenuItem.Click += new System.EventHandler(this.reporteDeVentasMenuItem_Click);
+            // 
+            // historialDeClienteMenuItem
+            // 
+            this.historialDeClienteMenuItem.Name = "historialDeClienteMenuItem";
+            this.historialDeClienteMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.historialDeClienteMenuItem.Text = "Historial de cliente";
+            this.historialDeClienteMenuItem.Click += new System.EventHandler(this.historialDeClienteMenuItem_Click);
+            // 
+            // salirMenuItem
+            // 
+            this.salirMenuItem.Name = "salirMenuItem";
+            this.salirMenuItem.Size = new System.Drawing.Size(52, 23);
+            this.salirMenuItem.Text = "Salir";
+            this.salirMenuItem.Click += new System.EventHandler(this.salirMenuItem_Click);
+            // 
+            // btnPais
+            // 
+            this.btnPais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnPais.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPais.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPais.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPais.Location = new System.Drawing.Point(259, 3);
+            this.btnPais.Name = "btnPais";
+            this.btnPais.Size = new System.Drawing.Size(66, 34);
+            this.btnPais.TabIndex = 32;
+            this.btnPais.Text = "Buscar";
+            this.btnPais.UseVisualStyleBackColor = false;
+            this.btnPais.Click += new System.EventHandler(this.btnPais_Click);
+            // 
+            // btnAno
+            // 
+            this.btnAno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnAno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAno.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAno.Location = new System.Drawing.Point(579, 3);
+            this.btnAno.Name = "btnAno";
+            this.btnAno.Size = new System.Drawing.Size(66, 34);
+            this.btnAno.TabIndex = 33;
+            this.btnAno.Text = "Buscar";
+            this.btnAno.UseVisualStyleBackColor = false;
+            this.btnAno.Click += new System.EventHandler(this.btnAno_Click);
+            // 
+            // btnCd
+            // 
+            this.btnCd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnCd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCd.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCd.Location = new System.Drawing.Point(899, 3);
+            this.btnCd.Name = "btnCd";
+            this.btnCd.Size = new System.Drawing.Size(66, 34);
+            this.btnCd.TabIndex = 34;
+            this.btnCd.Text = "Buscar";
+            this.btnCd.UseVisualStyleBackColor = false;
+            this.btnCd.Click += new System.EventHandler(this.btnCd_Click);
+            // 
+            // btnHotel
+            // 
+            this.btnHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnHotel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHotel.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnHotel.Location = new System.Drawing.Point(1219, 3);
+            this.btnHotel.Name = "btnHotel";
+            this.btnHotel.Size = new System.Drawing.Size(66, 34);
+            this.btnHotel.TabIndex = 35;
+            this.btnHotel.Text = "Buscar";
+            this.btnHotel.UseVisualStyleBackColor = false;
+            this.btnHotel.Click += new System.EventHandler(this.btnHotel_Click);
+            // 
+            // txtAno
+            // 
+            this.txtAno.Location = new System.Drawing.Point(3, 3);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(227, 29);
+            this.txtAno.TabIndex = 0;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 430);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1303, 276);
+            this.dataGridView2.TabIndex = 34;
             // 
             // ReporteOcupacionWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1327, 517);
-            this.Controls.Add(this.flowLayoutPanel6);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1327, 718);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.menuAdministrador);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.btnIrALogin);
             this.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReporteOcupacionWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotelera - Reporte por ocupación de hotel";
+            this.Load += new System.EventHandler(this.ReporteOcupacionWindow_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel12.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuAdministrador.ResumeLayout(false);
             this.menuAdministrador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,9 +474,28 @@ namespace Hotelera
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
+        private System.Windows.Forms.ComboBox txtPais;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.ComboBox txtCiudad;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.ComboBox txtHotel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnIrALogin;
         private System.Windows.Forms.MenuStrip menuAdministrador;
+        private System.Windows.Forms.ToolStripMenuItem no;
         private System.Windows.Forms.ToolStripMenuItem hotelesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviciosAdicionalesDeHotelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeHabitaciónMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposHabMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem amHabMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caractHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosMenuItem;
         private System.Windows.Forms.ToolStripMenuItem habilitarInhabilitarUsuarioMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarReservacionMenuItem;
@@ -505,33 +504,11 @@ namespace Hotelera
         private System.Windows.Forms.ToolStripMenuItem reporteDeVentasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialDeClienteMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirMenuItem;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
-        private System.Windows.Forms.ComboBox txtPais;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.DateTimePicker txtFechNac;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnIrALogin;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnPais;
+        private System.Windows.Forms.Button btnAno;
+        private System.Windows.Forms.Button btnCd;
+        private System.Windows.Forms.Button btnHotel;
+        private System.Windows.Forms.TextBox txtAno;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

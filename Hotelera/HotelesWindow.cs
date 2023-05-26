@@ -63,25 +63,25 @@ namespace Hotelera
         }
         private void cancelarReservacionMenuItem_Click(object sender, EventArgs e)
         {
-            CancelacionWindow cancelacionWindow = new CancelacionWindow();
+            CancelacionWindow cancelacionWindow = new CancelacionWindow(idUsuario);
             cancelacionWindow.Show();
             this.Close();
         }
         private void reporteDeOcupaciónPorHotelMenuItem_Click(object sender, EventArgs e)
         {
-            ReporteOcupacionWindow reporteOcupacion = new ReporteOcupacionWindow();
+            ReporteOcupacionWindow reporteOcupacion = new ReporteOcupacionWindow(idUsuario);
             reporteOcupacion.Show();
             this.Close();
         }
         private void reporteDeVentasMenuItem_Click(object sender, EventArgs e)
         {
-            ReporteVentasWindow reporteVentasWindow = new ReporteVentasWindow();
+            ReporteVentasWindow reporteVentasWindow = new ReporteVentasWindow(idUsuario);
             reporteVentasWindow.Show();
             this.Close();
         }
         private void historialDeClienteMenuItem_Click(object sender, EventArgs e)
         {
-            HistorialClienteWindow historialClienteWindow = new HistorialClienteWindow();
+            HistorialClienteWindow historialClienteWindow = new HistorialClienteWindow(idUsuario);
             historialClienteWindow.Show();
             this.Close();
         }
