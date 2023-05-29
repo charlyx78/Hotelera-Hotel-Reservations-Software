@@ -35,9 +35,7 @@
             this.menuAdministrador = new System.Windows.Forms.MenuStrip();
             this.no = new System.Windows.Forms.ToolStripMenuItem();
             this.hotelesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviciosAdicionalesDeHotelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeHabitaciónMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiposHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.amHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caractHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,8 +116,7 @@
             // no
             // 
             this.no.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hotelesMenuItem,
-            this.serviciosAdicionalesDeHotelMenuItem});
+            this.hotelesMenuItem});
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(73, 23);
             this.no.Text = "Hoteles";
@@ -127,33 +124,18 @@
             // hotelesMenuItem
             // 
             this.hotelesMenuItem.Name = "hotelesMenuItem";
-            this.hotelesMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.hotelesMenuItem.Size = new System.Drawing.Size(130, 24);
             this.hotelesMenuItem.Text = "Hoteles";
             this.hotelesMenuItem.Click += new System.EventHandler(this.hotelesMenuItem_Click);
-            // 
-            // serviciosAdicionalesDeHotelMenuItem
-            // 
-            this.serviciosAdicionalesDeHotelMenuItem.Name = "serviciosAdicionalesDeHotelMenuItem";
-            this.serviciosAdicionalesDeHotelMenuItem.Size = new System.Drawing.Size(281, 24);
-            this.serviciosAdicionalesDeHotelMenuItem.Text = "Servicios adicionales de hotel";
-            this.serviciosAdicionalesDeHotelMenuItem.Click += new System.EventHandler(this.serviciosAdicionalesDeHotelMenuItem_Click);
             // 
             // tiposDeHabitaciónMenuItem
             // 
             this.tiposDeHabitaciónMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tiposHabMenuItem,
             this.amHabMenuItem,
             this.caractHabMenuItem});
             this.tiposDeHabitaciónMenuItem.Name = "tiposDeHabitaciónMenuItem";
             this.tiposDeHabitaciónMenuItem.Size = new System.Drawing.Size(155, 23);
             this.tiposDeHabitaciónMenuItem.Text = "Tipos de habitación";
-            // 
-            // tiposHabMenuItem
-            // 
-            this.tiposHabMenuItem.Name = "tiposHabMenuItem";
-            this.tiposHabMenuItem.Size = new System.Drawing.Size(275, 24);
-            this.tiposHabMenuItem.Text = "Tipos de habitación";
-            this.tiposHabMenuItem.Click += new System.EventHandler(this.tiposHabMenuItem_Click);
             // 
             // amHabMenuItem
             // 
@@ -267,7 +249,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvHoteles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvHoteles.Size = new System.Drawing.Size(897, 497);
+            this.dgvHoteles.Size = new System.Drawing.Size(897, 300);
             this.dgvHoteles.TabIndex = 1;
             this.dgvHoteles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoteles_CellClick);
             // 
@@ -276,7 +258,7 @@
             this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel7);
             this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel1);
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 506);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 309);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(898, 333);
             this.flowLayoutPanel6.TabIndex = 8;
@@ -669,7 +651,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.DataGridView dgvHoteles;
         private System.Windows.Forms.ToolStripMenuItem tiposDeHabitaciónMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiposHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem amHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caractHabMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
@@ -704,7 +685,6 @@
         private System.Windows.Forms.ComboBox txtZonaTuristica;
         private System.Windows.Forms.Button btnNuevoHot;
         private System.Windows.Forms.ToolStripMenuItem hotelesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem serviciosAdicionalesDeHotelMenuItem;
         private System.Windows.Forms.Button btnVerServAdicionales;
     }
 }

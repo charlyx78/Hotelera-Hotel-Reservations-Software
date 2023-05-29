@@ -1,7 +1,7 @@
 ﻿
 namespace Hotelera
 {
-    partial class ReservacionAgregarWindow
+    partial class ReservacionExtensionWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Hotelera
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservacionAgregarWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservacionExtensionWindow));
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -41,35 +41,24 @@ namespace Hotelera
             this.btnGestHabReserv = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAggServAdicReserv = new System.Windows.Forms.Button();
-            this.btnGestServAdic = new System.Windows.Forms.Button();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtAnticipo = new System.Windows.Forms.TextBox();
             this.btnContReserv = new System.Windows.Forms.Button();
             this.dtpInvisible = new System.Windows.Forms.DateTimePicker();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCantHabs = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
-            this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
             this.flowLayoutPanel14.SuspendLayout();
-            this.flowLayoutPanel13.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvHabitaciones
@@ -102,6 +91,7 @@ namespace Hotelera
             // 
             // flowLayoutPanel6
             // 
+            this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel7);
             this.flowLayoutPanel6.Controls.Add(this.btnAggHabReserv);
             this.flowLayoutPanel6.Controls.Add(this.btnGestHabReserv);
@@ -115,7 +105,7 @@ namespace Hotelera
             // 
             this.flowLayoutPanel7.Controls.Add(this.label3);
             this.flowLayoutPanel7.Controls.Add(this.txtCantPersonas);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(4, 67);
             this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Size = new System.Drawing.Size(348, 63);
@@ -147,7 +137,7 @@ namespace Hotelera
             this.btnAggHabReserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggHabReserv.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAggHabReserv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAggHabReserv.Location = new System.Drawing.Point(4, 75);
+            this.btnAggHabReserv.Location = new System.Drawing.Point(4, 138);
             this.btnAggHabReserv.Margin = new System.Windows.Forms.Padding(4);
             this.btnAggHabReserv.Name = "btnAggHabReserv";
             this.btnAggHabReserv.Size = new System.Drawing.Size(348, 41);
@@ -163,7 +153,7 @@ namespace Hotelera
             this.btnGestHabReserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestHabReserv.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestHabReserv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGestHabReserv.Location = new System.Drawing.Point(4, 124);
+            this.btnGestHabReserv.Location = new System.Drawing.Point(4, 187);
             this.btnGestHabReserv.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestHabReserv.Name = "btnGestHabReserv";
             this.btnGestHabReserv.Size = new System.Drawing.Size(348, 41);
@@ -187,8 +177,6 @@ namespace Hotelera
             // 
             this.flowLayoutPanel4.Controls.Add(this.label1);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel4.Controls.Add(this.label6);
-            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel12);
             this.flowLayoutPanel4.Controls.Add(this.btnContReserv);
             this.flowLayoutPanel4.Controls.Add(this.dtpInvisible);
@@ -196,93 +184,13 @@ namespace Hotelera
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(1176, 956);
             this.flowLayoutPanel4.TabIndex = 51;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 414);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(278, 19);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "Selecciona los servicios adicionales";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.BackColor = System.Drawing.SystemColors.Window;
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel9);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 436);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1173, 386);
-            this.flowLayoutPanel5.TabIndex = 49;
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.Controls.Add(this.dgvServicios);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(801, 380);
-            this.flowLayoutPanel8.TabIndex = 1;
-            // 
-            // dgvServicios
-            // 
-            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServicios.Location = new System.Drawing.Point(4, 4);
-            this.dgvServicios.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvServicios.Name = "dgvServicios";
-            this.dgvServicios.Size = new System.Drawing.Size(797, 376);
-            this.dgvServicios.TabIndex = 46;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.btnAggServAdicReserv);
-            this.flowLayoutPanel9.Controls.Add(this.btnGestServAdic);
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(811, 4);
-            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(356, 379);
-            this.flowLayoutPanel9.TabIndex = 45;
-            // 
-            // btnAggServAdicReserv
-            // 
-            this.btnAggServAdicReserv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnAggServAdicReserv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAggServAdicReserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAggServAdicReserv.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggServAdicReserv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAggServAdicReserv.Location = new System.Drawing.Point(4, 4);
-            this.btnAggServAdicReserv.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAggServAdicReserv.Name = "btnAggServAdicReserv";
-            this.btnAggServAdicReserv.Size = new System.Drawing.Size(348, 41);
-            this.btnAggServAdicReserv.TabIndex = 47;
-            this.btnAggServAdicReserv.Text = "Agregar servicio adicional a la reservación";
-            this.btnAggServAdicReserv.UseVisualStyleBackColor = false;
-            this.btnAggServAdicReserv.Click += new System.EventHandler(this.btnAggServAdicReserv_Click);
-            // 
-            // btnGestServAdic
-            // 
-            this.btnGestServAdic.BackColor = System.Drawing.Color.DarkGray;
-            this.btnGestServAdic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGestServAdic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestServAdic.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestServAdic.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGestServAdic.Location = new System.Drawing.Point(4, 53);
-            this.btnGestServAdic.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestServAdic.Name = "btnGestServAdic";
-            this.btnGestServAdic.Size = new System.Drawing.Size(348, 49);
-            this.btnGestServAdic.TabIndex = 49;
-            this.btnGestServAdic.Text = "Ver servicios adicionales agregados a la habitación";
-            this.btnGestServAdic.UseVisualStyleBackColor = false;
-            this.btnGestServAdic.Click += new System.EventHandler(this.btnGestServAdic_Click);
+            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
             // 
             // flowLayoutPanel12
             // 
             this.flowLayoutPanel12.BackColor = System.Drawing.SystemColors.Window;
             this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel14);
-            this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel13);
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 828);
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 417);
             this.flowLayoutPanel12.Name = "flowLayoutPanel12";
             this.flowLayoutPanel12.Size = new System.Drawing.Size(1173, 71);
             this.flowLayoutPanel12.TabIndex = 53;
@@ -316,34 +224,6 @@ namespace Hotelera
             this.txtTotal.Size = new System.Drawing.Size(564, 29);
             this.txtTotal.TabIndex = 49;
             // 
-            // flowLayoutPanel13
-            // 
-            this.flowLayoutPanel13.Controls.Add(this.label7);
-            this.flowLayoutPanel13.Controls.Add(this.txtAnticipo);
-            this.flowLayoutPanel13.Location = new System.Drawing.Point(587, 4);
-            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(580, 63);
-            this.flowLayoutPanel13.TabIndex = 51;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 19);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Monto de anticipo";
-            // 
-            // txtAnticipo
-            // 
-            this.txtAnticipo.Location = new System.Drawing.Point(3, 22);
-            this.txtAnticipo.Name = "txtAnticipo";
-            this.txtAnticipo.Size = new System.Drawing.Size(573, 29);
-            this.txtAnticipo.TabIndex = 49;
-            // 
             // btnContReserv
             // 
             this.btnContReserv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
@@ -351,7 +231,7 @@ namespace Hotelera
             this.btnContReserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContReserv.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContReserv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnContReserv.Location = new System.Drawing.Point(4, 906);
+            this.btnContReserv.Location = new System.Drawing.Point(4, 495);
             this.btnContReserv.Margin = new System.Windows.Forms.Padding(4);
             this.btnContReserv.Name = "btnContReserv";
             this.btnContReserv.Size = new System.Drawing.Size(1172, 41);
@@ -362,13 +242,38 @@ namespace Hotelera
             // 
             // dtpInvisible
             // 
-            this.dtpInvisible.Location = new System.Drawing.Point(3, 954);
+            this.dtpInvisible.Location = new System.Drawing.Point(3, 543);
             this.dtpInvisible.Name = "dtpInvisible";
             this.dtpInvisible.Size = new System.Drawing.Size(200, 29);
             this.dtpInvisible.TabIndex = 46;
             this.dtpInvisible.Visible = false;
             // 
-            // ReservacionAgregarWindow
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label11);
+            this.flowLayoutPanel2.Controls.Add(this.txtCantHabs);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(349, 57);
+            this.flowLayoutPanel2.TabIndex = 50;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(183, 19);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Cantidad de habitaciones";
+            // 
+            // txtCantHabs
+            // 
+            this.txtCantHabs.Location = new System.Drawing.Point(3, 22);
+            this.txtCantHabs.Name = "txtCantHabs";
+            this.txtCantHabs.Size = new System.Drawing.Size(342, 29);
+            this.txtCantHabs.TabIndex = 1;
+            // 
+            // ReservacionExtensionWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -377,7 +282,7 @@ namespace Hotelera
             this.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ReservacionAgregarWindow";
+            this.Name = "ReservacionExtensionWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotelera - Seleccion de habitaciones";
             this.Load += new System.EventHandler(this.ReservacionHabitaciones_Load);
@@ -389,15 +294,11 @@ namespace Hotelera
             this.flowLayoutPanel7.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
-            this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel12.ResumeLayout(false);
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
-            this.flowLayoutPanel13.ResumeLayout(false);
-            this.flowLayoutPanel13.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -414,21 +315,14 @@ namespace Hotelera
         private System.Windows.Forms.Button btnGestHabReserv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private System.Windows.Forms.DataGridView dgvServicios;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
-        private System.Windows.Forms.Button btnAggServAdicReserv;
-        private System.Windows.Forms.Button btnGestServAdic;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtAnticipo;
         private System.Windows.Forms.Button btnContReserv;
         private System.Windows.Forms.DateTimePicker dtpInvisible;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCantHabs;
     }
 }

@@ -26,28 +26,23 @@ namespace Hotelera
         }
         private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            ClientesWindow clientesWindow = new ClientesWindow(idUsuario,fechaOps);
-            clientesWindow.Show();
-            this.Hide();
+
         }
         private void hacerReservaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ReservacionesWindow reservacionesWindow = new ReservacionesWindow(idUsuario, fechaOps);
             reservacionesWindow.Owner = this;
-            reservacionesWindow.Show();
-            this.Hide();
+            reservacionesWindow.ShowDialog();
         }
         private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheckInWindow checkInWindow = new CheckInWindow(idUsuario, fechaOps);
             checkInWindow.ShowDialog();
-            this.Hide();
         }
         private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheckOutWindow checkOutWindow = new CheckOutWindow(idUsuario, fechaOps);
-            checkOutWindow.Show();
-            this.Hide();
+            checkOutWindow.ShowDialog();
         }
         private void salirMenuItem_Click(object sender, EventArgs e)
         {

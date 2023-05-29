@@ -26,20 +26,6 @@ namespace Hotelera
             this.Close();
         }
 
-        private void serviciosAdicionalesDeHotelMenuItem_Click(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-
-        private void tiposHabMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
-            this.Close();
-        }
-
         private void amHabMenuItem_Click(object sender, EventArgs e)
         {
             AmenidadesHabitacionWindow amenidadesHabitacion = new AmenidadesHabitacionWindow(idUsuario);
@@ -143,6 +129,30 @@ namespace Hotelera
             EnlaceDB enlace = new EnlaceDB();
             dataGridView1.DataSource = enlace.get_ReporteOcupacion("H", "", 0, "", Convert.ToInt32(txtHotel.SelectedValue));
             dataGridView2.DataSource = enlace.get_ReporteOcupacion("HR", "", 0, "", Convert.ToInt32(txtHotel.SelectedValue));
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 5 && e.Value != null)
+            {
+                if (double.TryParse(e.Value.ToString(), out double porcentaje))
+                {
+                    e.Value = porcentaje.ToString("0.##") + "%";
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 4 && e.Value != null)
+            {
+                if (double.TryParse(e.Value.ToString(), out double porcentaje))
+                {
+                    e.Value = porcentaje.ToString("0.##") + "%";
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

@@ -35,26 +35,36 @@ namespace Hotelera
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.txCdoReserv = new System.Windows.Forms.TextBox();
+            this.dtpInvisible = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnExt = new System.Windows.Forms.Button();
             this.btnPago = new System.Windows.Forms.Button();
             this.flpExt = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnExtReserv = new System.Windows.Forms.Button();
             this.flpPago = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvResumenReserv = new System.Windows.Forms.DataGridView();
+            this.dgvServDisp = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvServAgg = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMontoPendiente = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnConfirmarCheckIn = new System.Windows.Forms.Button();
-            this.btnExtReserv = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flpExt.SuspendLayout();
             this.flpPago.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResumenReserv)).BeginInit();
+            this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServDisp)).BeginInit();
+            this.flowLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServAgg)).BeginInit();
             this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,14 +88,16 @@ namespace Hotelera
             // 
             this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.txCdoReserv);
+            this.flowLayoutPanel1.Controls.Add(this.dtpInvisible);
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flpExt);
             this.flowLayoutPanel1.Controls.Add(this.flpPago);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(779, 716);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(779, 846);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // label4
@@ -104,10 +116,18 @@ namespace Hotelera
             this.txCdoReserv.Size = new System.Drawing.Size(773, 29);
             this.txCdoReserv.TabIndex = 36;
             // 
+            // dtpInvisible
+            // 
+            this.dtpInvisible.Location = new System.Drawing.Point(3, 57);
+            this.dtpInvisible.Name = "dtpInvisible";
+            this.dtpInvisible.Size = new System.Drawing.Size(200, 29);
+            this.dtpInvisible.TabIndex = 44;
+            this.dtpInvisible.Visible = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 54);
+            this.label5.Location = new System.Drawing.Point(3, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 19);
             this.label5.TabIndex = 38;
@@ -117,7 +137,7 @@ namespace Hotelera
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnExt);
             this.flowLayoutPanel2.Controls.Add(this.btnPago);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 76);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 111);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(776, 35);
             this.flowLayoutPanel2.TabIndex = 41;
@@ -126,6 +146,7 @@ namespace Hotelera
             // 
             this.btnExt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.btnExt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExt.Enabled = false;
             this.btnExt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExt.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -159,47 +180,132 @@ namespace Hotelera
             this.flpExt.Controls.Add(this.label1);
             this.flpExt.Controls.Add(this.dateTimePicker1);
             this.flpExt.Controls.Add(this.btnExtReserv);
-            this.flpExt.Location = new System.Drawing.Point(3, 117);
+            this.flpExt.Location = new System.Drawing.Point(3, 152);
             this.flpExt.Name = "flpExt";
             this.flpExt.Size = new System.Drawing.Size(776, 114);
             this.flpExt.TabIndex = 42;
             this.flpExt.Visible = false;
             // 
+            // btnExtReserv
+            // 
+            this.btnExtReserv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnExtReserv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExtReserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExtReserv.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExtReserv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExtReserv.Location = new System.Drawing.Point(3, 74);
+            this.btnExtReserv.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
+            this.btnExtReserv.Name = "btnExtReserv";
+            this.btnExtReserv.Size = new System.Drawing.Size(770, 34);
+            this.btnExtReserv.TabIndex = 41;
+            this.btnExtReserv.Text = "Confirmar";
+            this.btnExtReserv.UseVisualStyleBackColor = false;
+            this.btnExtReserv.Click += new System.EventHandler(this.btnExtReserv_Click);
+            // 
             // flpPago
             // 
-            this.flpPago.Controls.Add(this.label2);
-            this.flpPago.Controls.Add(this.dgvResumenReserv);
+            this.flpPago.Controls.Add(this.flowLayoutPanel3);
+            this.flpPago.Controls.Add(this.flowLayoutPanel5);
             this.flpPago.Controls.Add(this.label3);
             this.flpPago.Controls.Add(this.txtMontoPendiente);
-            this.flpPago.Controls.Add(this.flowLayoutPanel4);
-            this.flpPago.Location = new System.Drawing.Point(3, 237);
+            this.flpPago.Location = new System.Drawing.Point(3, 272);
             this.flpPago.Name = "flpPago";
-            this.flpPago.Size = new System.Drawing.Size(776, 475);
+            this.flpPago.Size = new System.Drawing.Size(776, 433);
             this.flpPago.TabIndex = 43;
             this.flpPago.Visible = false;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label2);
+            this.flowLayoutPanel3.Controls.Add(this.dgvServDisp);
+            this.flowLayoutPanel3.Controls.Add(this.button3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(375, 377);
+            this.flowLayoutPanel3.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(304, 19);
+            this.label2.Size = new System.Drawing.Size(135, 19);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Resumen de los servicios de la reservación";
+            this.label2.Text = "Servicios del hotel";
             // 
-            // dgvResumenReserv
+            // dgvServDisp
             // 
-            this.dgvResumenReserv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResumenReserv.Location = new System.Drawing.Point(3, 22);
-            this.dgvResumenReserv.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.dgvResumenReserv.Name = "dgvResumenReserv";
-            this.dgvResumenReserv.Size = new System.Drawing.Size(776, 298);
-            this.dgvResumenReserv.TabIndex = 3;
+            this.dgvServDisp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServDisp.Location = new System.Drawing.Point(3, 22);
+            this.dgvServDisp.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.dgvServDisp.Name = "dgvServDisp";
+            this.dgvServDisp.Size = new System.Drawing.Size(372, 298);
+            this.dgvServDisp.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(3, 343);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(372, 34);
+            this.button3.TabIndex = 42;
+            this.button3.Text = "Agregar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.label6);
+            this.flowLayoutPanel5.Controls.Add(this.dgvServAgg);
+            this.flowLayoutPanel5.Controls.Add(this.button4);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(384, 3);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(389, 377);
+            this.flowLayoutPanel5.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(260, 19);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Servicios agregados a la reservación";
+            // 
+            // dgvServAgg
+            // 
+            this.dgvServAgg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServAgg.Location = new System.Drawing.Point(3, 22);
+            this.dgvServAgg.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.dgvServAgg.Name = "dgvServAgg";
+            this.dgvServAgg.Size = new System.Drawing.Size(383, 298);
+            this.dgvServAgg.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(3, 343);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(383, 34);
+            this.button4.TabIndex = 43;
+            this.button4.Text = "Eliminar";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 340);
+            this.label3.Location = new System.Drawing.Point(3, 383);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 19);
             this.label3.TabIndex = 4;
@@ -207,7 +313,7 @@ namespace Hotelera
             // 
             // txtMontoPendiente
             // 
-            this.txtMontoPendiente.Location = new System.Drawing.Point(3, 362);
+            this.txtMontoPendiente.Location = new System.Drawing.Point(3, 405);
             this.txtMontoPendiente.Name = "txtMontoPendiente";
             this.txtMontoPendiente.ReadOnly = true;
             this.txtMontoPendiente.Size = new System.Drawing.Size(776, 29);
@@ -218,9 +324,9 @@ namespace Hotelera
             this.flowLayoutPanel4.Controls.Add(this.button2);
             this.flowLayoutPanel4.Controls.Add(this.button1);
             this.flowLayoutPanel4.Controls.Add(this.btnConfirmarCheckIn);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 397);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 711);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(773, 67);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(773, 62);
             this.flowLayoutPanel4.TabIndex = 6;
             // 
             // button2
@@ -271,27 +377,11 @@ namespace Hotelera
             this.btnConfirmarCheckIn.UseVisualStyleBackColor = false;
             this.btnConfirmarCheckIn.Click += new System.EventHandler(this.btnConfirmarCheckIn_Click);
             // 
-            // btnExtReserv
-            // 
-            this.btnExtReserv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnExtReserv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExtReserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExtReserv.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExtReserv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExtReserv.Location = new System.Drawing.Point(3, 74);
-            this.btnExtReserv.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
-            this.btnExtReserv.Name = "btnExtReserv";
-            this.btnExtReserv.Size = new System.Drawing.Size(770, 34);
-            this.btnExtReserv.TabIndex = 41;
-            this.btnExtReserv.Text = "Confirmar";
-            this.btnExtReserv.UseVisualStyleBackColor = false;
-            this.btnExtReserv.Click += new System.EventHandler(this.btnExtReserv_Click);
-            // 
             // CheckOutWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 720);
+            this.ClientSize = new System.Drawing.Size(803, 881);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -299,6 +389,7 @@ namespace Hotelera
             this.Name = "CheckOutWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotelera - Check Out";
+            this.Load += new System.EventHandler(this.CheckOutWindow_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -306,7 +397,12 @@ namespace Hotelera
             this.flpExt.PerformLayout();
             this.flpPago.ResumeLayout(false);
             this.flpPago.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResumenReserv)).EndInit();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServDisp)).EndInit();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServAgg)).EndInit();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -318,7 +414,7 @@ namespace Hotelera
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvResumenReserv;
+        private System.Windows.Forms.DataGridView dgvServDisp;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMontoPendiente;
         private System.Windows.Forms.Button btnConfirmarCheckIn;
@@ -334,5 +430,12 @@ namespace Hotelera
         private System.Windows.Forms.FlowLayoutPanel flpPago;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Button btnExtReserv;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dgvServAgg;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DateTimePicker dtpInvisible;
     }
 }

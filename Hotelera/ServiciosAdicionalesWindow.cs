@@ -13,9 +13,10 @@ namespace Hotelera
 {
     public partial class ServiciosAdicionalesWindow : Form
     {
-        int idUsuario;
-        public ServiciosAdicionalesWindow(int idUsuarioParam)
+        int idUsuario, idHotel;
+        public ServiciosAdicionalesWindow(int idUsuarioParam, int idHotelParam)
         {
+            idHotel = idHotelParam;
             idUsuario = idUsuarioParam;
             InitializeComponent();
         }
@@ -26,14 +27,14 @@ namespace Hotelera
 
         private void btnNuevoServAdicional_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtCosto.Text == "")
+            if (txtNombre.Text == "" || txtCosto.Text == "")
             {
                 MessageBox.Show("Por favor, llene todos los campos para registrar un servicio adicional", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 EnlaceDB enlace = new EnlaceDB();
-                if (enlace.Gestion_ServAdicionales("I", 0, txtNombre.Text.Trim(), txtDescripcion.Text.Trim(), float.Parse(txtCosto.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat), idUsuario))
+                if (enlace.Gestion_ServAdicionales("I", 0, txtNombre.Text.Trim(), txtDescripcion.Text.Trim(), float.Parse(txtCosto.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat), idHotel, idUsuario))
                 {
                     this.Controls.Clear();
                     MessageBox.Show("Servicio adicional registrado exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -57,7 +58,7 @@ namespace Hotelera
                     if (enlace.Gestion_ServAdicionales(
                         "U",
                         Convert.ToInt32(dgvServAdicionales.Rows[dgvServAdicionales.CurrentRow.Index].Cells[0].Value),
-                        txtNombre.Text.Trim(), txtDescripcion.Text.Trim(), float.Parse(txtCosto.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat), idUsuario))
+                        txtNombre.Text.Trim(), txtDescripcion.Text.Trim(), float.Parse(txtCosto.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat), idHotel, idUsuario))
                     {
                         this.Controls.Clear();
                         MessageBox.Show("Servicio adicional editado exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,23 +79,16 @@ namespace Hotelera
             {
                 if (MessageBox.Show("¿Está seguro de que desea eliminar este servicio adicional? Una vez eliminado, su información solo podrá ser recuperada por el SA", "Alerta!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (txtNombre.Text == "")
+                    EnlaceDB enlace = new EnlaceDB();
+                    if (enlace.Gestion_ServAdicionales(
+                        "D",
+                        Convert.ToInt32(dgvServAdicionales.Rows[dgvServAdicionales.CurrentRow.Index].Cells[0].Value),
+                        "", "", 0, idHotel, idUsuario))
                     {
-                        MessageBox.Show("Por favor, llene todos los campos para eliminar un servicio adicional", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        EnlaceDB enlace = new EnlaceDB();
-                        if (enlace.Gestion_ServAdicionales(
-                            "D",
-                            Convert.ToInt32(dgvServAdicionales.Rows[dgvServAdicionales.CurrentRow.Index].Cells[0].Value),
-                            "", "", 0, idUsuario))
-                        {
-                            this.Controls.Clear();
-                            MessageBox.Show("Servicio adicional eliminado exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.InitializeComponent();
-                            actualizar();
-                        }
+                        this.Controls.Clear();
+                        MessageBox.Show("Servicio adicional eliminado exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.InitializeComponent();
+                        actualizar();
                     }
                 }
             }
@@ -113,7 +107,7 @@ namespace Hotelera
         private void actualizar()
         {
             EnlaceDB enlace = new EnlaceDB();
-            dgvServAdicionales.DataSource = enlace.get_ServAdicionales();
+            dgvServAdicionales.DataSource = enlace.get_ServAdicionales(idHotel);
         }
 
         private void dgvServAdicionales_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -137,20 +131,6 @@ namespace Hotelera
         {
             HotelesWindow hotelesWindow = new HotelesWindow(idUsuario);
             hotelesWindow.Show();
-            this.Close();
-        }
-
-        private void serviciosAdicionalesDeHotelMenuItem_Click(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-
-        private void tiposHabMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
             this.Close();
         }
 

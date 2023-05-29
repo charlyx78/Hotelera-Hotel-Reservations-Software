@@ -73,7 +73,7 @@ namespace Hotelera
             lbServAdicionalesAgg.DataSource = enlace.get_ServAdicionalesAdded("S",idHotel);
             lbServAdicionalesAgg.DisplayMember = "nombre";
             lbServAdicionalesAgg.ValueMember = "ID";
-            lbServAdicionalesDisp.DataSource = enlace.get_ServAdicionales();
+            lbServAdicionalesDisp.DataSource = enlace.get_ServAdicionales(idHotel);
             lbServAdicionalesDisp.DisplayMember = "nombre";
             lbServAdicionalesDisp.ValueMember = "ID";
         }

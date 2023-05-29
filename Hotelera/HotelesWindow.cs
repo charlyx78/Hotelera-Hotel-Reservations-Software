@@ -29,18 +29,6 @@ namespace Hotelera
             hotelesWindow.Show();
             this.Close();
         }
-        private void serviciosAdicionalesDeHotelMenuItem_Click(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-        private void tiposHabMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
-            this.Close();
-        }
 
         private void amHabMenuItem_Click(object sender, EventArgs e)
         {
@@ -213,15 +201,15 @@ namespace Hotelera
         private void btnVerTiposHab_Click(object sender, EventArgs e)
         {
             int idHotelSeleccionado = Convert.ToInt32(dgvHoteles.Rows[dgvHoteles.CurrentRow.Index].Cells[0].Value);
-            AddHabitacionHotelWindow addTipoHabitacionHotelWindow = new AddHabitacionHotelWindow(idHotelSeleccionado, idUsuario, Convert.ToInt32(dgvHoteles.Rows[dgvHoteles.CurrentRow.Index].Cells[6].Value));
-            addTipoHabitacionHotelWindow.ShowDialog();
+            TiposHabitacionWindow tiposHabitacionWindow = new TiposHabitacionWindow(idUsuario, idHotelSeleccionado);
+            tiposHabitacionWindow.ShowDialog();
             actualizar();
         }
         private void btnVerServAdicionales_Click(object sender, EventArgs e)
         {
             int idHotelSeleccionado = Convert.ToInt32(dgvHoteles.Rows[dgvHoteles.CurrentRow.Index].Cells[0].Value);
-            AddServiciosAdicionalesHotelWindow addServiciosAdicionalesHotelWindow = new AddServiciosAdicionalesHotelWindow(idHotelSeleccionado);
-            addServiciosAdicionalesHotelWindow.ShowDialog();
+            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario, idHotelSeleccionado);
+            serviciosAdicionalesWindow.ShowDialog();
             actualizar();
         }
         private void actualizar()

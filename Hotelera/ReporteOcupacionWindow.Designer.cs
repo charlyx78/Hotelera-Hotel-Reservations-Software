@@ -35,22 +35,25 @@ namespace Hotelera
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtPais = new System.Windows.Forms.ComboBox();
+            this.btnPais = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.btnAno = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtCiudad = new System.Windows.Forms.ComboBox();
+            this.btnCd = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtHotel = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnHotel = new System.Windows.Forms.Button();
             this.btnIrALogin = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuAdministrador = new System.Windows.Forms.MenuStrip();
             this.no = new System.Windows.Forms.ToolStripMenuItem();
             this.hotelesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviciosAdicionalesDeHotelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeHabitaciónMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiposHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.amHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caractHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,11 +64,6 @@ namespace Hotelera
             this.reporteDeVentasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeClienteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnPais = new System.Windows.Forms.Button();
-            this.btnAno = new System.Windows.Forms.Button();
-            this.btnCd = new System.Windows.Forms.Button();
-            this.btnHotel = new System.Windows.Forms.Button();
-            this.txtAno = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -133,6 +131,21 @@ namespace Hotelera
             this.txtPais.Size = new System.Drawing.Size(225, 27);
             this.txtPais.TabIndex = 15;
             // 
+            // btnPais
+            // 
+            this.btnPais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnPais.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPais.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPais.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPais.Location = new System.Drawing.Point(259, 3);
+            this.btnPais.Name = "btnPais";
+            this.btnPais.Size = new System.Drawing.Size(66, 34);
+            this.btnPais.TabIndex = 32;
+            this.btnPais.Text = "Buscar";
+            this.btnPais.UseVisualStyleBackColor = false;
+            this.btnPais.Click += new System.EventHandler(this.btnPais_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel3);
@@ -150,6 +163,28 @@ namespace Hotelera
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(232, 36);
             this.flowLayoutPanel3.TabIndex = 25;
+            // 
+            // txtAno
+            // 
+            this.txtAno.Location = new System.Drawing.Point(3, 3);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(227, 29);
+            this.txtAno.TabIndex = 0;
+            // 
+            // btnAno
+            // 
+            this.btnAno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnAno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAno.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAno.Location = new System.Drawing.Point(579, 3);
+            this.btnAno.Name = "btnAno";
+            this.btnAno.Size = new System.Drawing.Size(66, 34);
+            this.btnAno.TabIndex = 33;
+            this.btnAno.Text = "Buscar";
+            this.btnAno.UseVisualStyleBackColor = false;
+            this.btnAno.Click += new System.EventHandler(this.btnAno_Click);
             // 
             // groupBox3
             // 
@@ -178,6 +213,21 @@ namespace Hotelera
             this.txtCiudad.Size = new System.Drawing.Size(225, 27);
             this.txtCiudad.TabIndex = 15;
             // 
+            // btnCd
+            // 
+            this.btnCd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnCd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCd.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCd.Location = new System.Drawing.Point(899, 3);
+            this.btnCd.Name = "btnCd";
+            this.btnCd.Size = new System.Drawing.Size(66, 34);
+            this.btnCd.TabIndex = 34;
+            this.btnCd.Text = "Buscar";
+            this.btnCd.UseVisualStyleBackColor = false;
+            this.btnCd.Click += new System.EventHandler(this.btnCd_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanel5);
@@ -205,13 +255,20 @@ namespace Hotelera
             this.txtHotel.Size = new System.Drawing.Size(225, 27);
             this.txtHotel.TabIndex = 15;
             // 
-            // dataGridView1
+            // btnHotel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 117);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1303, 307);
-            this.dataGridView1.TabIndex = 26;
+            this.btnHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnHotel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHotel.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnHotel.Location = new System.Drawing.Point(1219, 3);
+            this.btnHotel.Name = "btnHotel";
+            this.btnHotel.Size = new System.Drawing.Size(66, 34);
+            this.btnHotel.TabIndex = 35;
+            this.btnHotel.Text = "Buscar";
+            this.btnHotel.UseVisualStyleBackColor = false;
+            this.btnHotel.Click += new System.EventHandler(this.btnHotel_Click);
             // 
             // btnIrALogin
             // 
@@ -227,6 +284,15 @@ namespace Hotelera
             this.btnIrALogin.Text = "Buscar";
             this.btnIrALogin.UseVisualStyleBackColor = false;
             this.btnIrALogin.Click += new System.EventHandler(this.btnIrALogin_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 117);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1303, 307);
+            this.dataGridView1.TabIndex = 26;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // menuAdministrador
             // 
@@ -248,8 +314,7 @@ namespace Hotelera
             // no
             // 
             this.no.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hotelesMenuItem,
-            this.serviciosAdicionalesDeHotelMenuItem});
+            this.hotelesMenuItem});
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(73, 23);
             this.no.Text = "Hoteles";
@@ -257,33 +322,18 @@ namespace Hotelera
             // hotelesMenuItem
             // 
             this.hotelesMenuItem.Name = "hotelesMenuItem";
-            this.hotelesMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.hotelesMenuItem.Size = new System.Drawing.Size(130, 24);
             this.hotelesMenuItem.Text = "Hoteles";
             this.hotelesMenuItem.Click += new System.EventHandler(this.hotelesMenuItem_Click);
-            // 
-            // serviciosAdicionalesDeHotelMenuItem
-            // 
-            this.serviciosAdicionalesDeHotelMenuItem.Name = "serviciosAdicionalesDeHotelMenuItem";
-            this.serviciosAdicionalesDeHotelMenuItem.Size = new System.Drawing.Size(281, 24);
-            this.serviciosAdicionalesDeHotelMenuItem.Text = "Servicios adicionales de hotel";
-            this.serviciosAdicionalesDeHotelMenuItem.Click += new System.EventHandler(this.serviciosAdicionalesDeHotelMenuItem_Click);
             // 
             // tiposDeHabitaciónMenuItem
             // 
             this.tiposDeHabitaciónMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tiposHabMenuItem,
             this.amHabMenuItem,
             this.caractHabMenuItem});
             this.tiposDeHabitaciónMenuItem.Name = "tiposDeHabitaciónMenuItem";
             this.tiposDeHabitaciónMenuItem.Size = new System.Drawing.Size(155, 23);
             this.tiposDeHabitaciónMenuItem.Text = "Tipos de habitación";
-            // 
-            // tiposHabMenuItem
-            // 
-            this.tiposHabMenuItem.Name = "tiposHabMenuItem";
-            this.tiposHabMenuItem.Size = new System.Drawing.Size(275, 24);
-            this.tiposHabMenuItem.Text = "Tipos de habitación";
-            this.tiposHabMenuItem.Click += new System.EventHandler(this.tiposHabMenuItem_Click);
             // 
             // amHabMenuItem
             // 
@@ -359,73 +409,6 @@ namespace Hotelera
             this.salirMenuItem.Text = "Salir";
             this.salirMenuItem.Click += new System.EventHandler(this.salirMenuItem_Click);
             // 
-            // btnPais
-            // 
-            this.btnPais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnPais.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPais.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPais.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPais.Location = new System.Drawing.Point(259, 3);
-            this.btnPais.Name = "btnPais";
-            this.btnPais.Size = new System.Drawing.Size(66, 34);
-            this.btnPais.TabIndex = 32;
-            this.btnPais.Text = "Buscar";
-            this.btnPais.UseVisualStyleBackColor = false;
-            this.btnPais.Click += new System.EventHandler(this.btnPais_Click);
-            // 
-            // btnAno
-            // 
-            this.btnAno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnAno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAno.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAno.Location = new System.Drawing.Point(579, 3);
-            this.btnAno.Name = "btnAno";
-            this.btnAno.Size = new System.Drawing.Size(66, 34);
-            this.btnAno.TabIndex = 33;
-            this.btnAno.Text = "Buscar";
-            this.btnAno.UseVisualStyleBackColor = false;
-            this.btnAno.Click += new System.EventHandler(this.btnAno_Click);
-            // 
-            // btnCd
-            // 
-            this.btnCd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnCd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCd.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCd.Location = new System.Drawing.Point(899, 3);
-            this.btnCd.Name = "btnCd";
-            this.btnCd.Size = new System.Drawing.Size(66, 34);
-            this.btnCd.TabIndex = 34;
-            this.btnCd.Text = "Buscar";
-            this.btnCd.UseVisualStyleBackColor = false;
-            this.btnCd.Click += new System.EventHandler(this.btnCd_Click);
-            // 
-            // btnHotel
-            // 
-            this.btnHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnHotel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHotel.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnHotel.Location = new System.Drawing.Point(1219, 3);
-            this.btnHotel.Name = "btnHotel";
-            this.btnHotel.Size = new System.Drawing.Size(66, 34);
-            this.btnHotel.TabIndex = 35;
-            this.btnHotel.Text = "Buscar";
-            this.btnHotel.UseVisualStyleBackColor = false;
-            this.btnHotel.Click += new System.EventHandler(this.btnHotel_Click);
-            // 
-            // txtAno
-            // 
-            this.txtAno.Location = new System.Drawing.Point(3, 3);
-            this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(227, 29);
-            this.txtAno.TabIndex = 0;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -433,6 +416,7 @@ namespace Hotelera
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(1303, 276);
             this.dataGridView2.TabIndex = 34;
+            this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView2_CellFormatting);
             // 
             // ReporteOcupacionWindow
             // 
@@ -491,9 +475,7 @@ namespace Hotelera
         private System.Windows.Forms.MenuStrip menuAdministrador;
         private System.Windows.Forms.ToolStripMenuItem no;
         private System.Windows.Forms.ToolStripMenuItem hotelesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem serviciosAdicionalesDeHotelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeHabitaciónMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiposHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem amHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caractHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosMenuItem;

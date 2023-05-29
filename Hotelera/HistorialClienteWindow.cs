@@ -95,20 +95,6 @@ namespace Hotelera
             this.Close();
         }
 
-        private void serviciosAdicionalesDeHotelMenuItem_Click(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-
-        private void tiposHabMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
-            this.Close();
-        }
-
         private void amHabMenuItem_Click(object sender, EventArgs e)
         {
             AmenidadesHabitacionWindow amenidadesHabitacion = new AmenidadesHabitacionWindow(idUsuario);
@@ -162,6 +148,35 @@ namespace Hotelera
         {
             this.Close();
             Application.Exit();
+        }
+
+        private void dgvHistorialCliente_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 10 && e.Value != null)
+            {
+                e.Value = "$" + e.Value.ToString();
+                e.FormattingApplied = true;
+            }
+            if (e.ColumnIndex == 11 && e.Value != null)
+            {
+                e.Value = "$" + e.Value.ToString();
+                e.FormattingApplied = true;
+            }
+            if (e.ColumnIndex == 12 && e.Value != null)
+            {
+                e.Value = "$" + e.Value.ToString();
+                e.FormattingApplied = true;
+            }
+            if (e.ColumnIndex == 13 && e.Value != null)
+            {
+                e.Value = "$" + e.Value.ToString();
+                e.FormattingApplied = true;
+            }
+            if (e.ColumnIndex == 14 && e.Value != null)
+            {
+                e.Value = "$" + e.Value.ToString();
+                e.FormattingApplied = true;
+            }
         }
     }
 }

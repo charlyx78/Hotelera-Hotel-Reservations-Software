@@ -35,12 +35,10 @@ namespace Hotelera
             }
             else
             {
-                if (enlace.Gestion_Reservaciones("CHI", Convert.ToInt32(txtCdoReserv.Text), "", dtpInvisible.Value.ToString(), dtpInvisible.Value.ToString(), 0, 0, 0, 0, 0, 0, dtpInvisible.Value.ToString(),fechaOps))
+                if (enlace.Gestion_Reservaciones("CHI", Convert.ToInt32(txtCdoReserv.Text), "", dtpInvisible.Value.ToString(), dtpInvisible.Value.ToString(), 0, 0, 0, 0, 0, 0, dtpInvisible.Value.ToString(),fechaOps,1000))
                 {                 
                     dgvHabsReserv.DataSource = enlace.get_HabitacionesReservaciones("S", 0, Convert.ToInt32(txtCdoReserv.Text), 0, 0, 0, 0, 0);
-                    MessageBox.Show("Check In realizado exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClientesWindow clientes = new ClientesWindow(idUsuario, fechaOps);
-                    clientes.Show();
+                    MessageBox.Show("Check In realizado correctamente", "EXITO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }

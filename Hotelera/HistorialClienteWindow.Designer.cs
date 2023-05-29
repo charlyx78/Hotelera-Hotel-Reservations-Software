@@ -46,9 +46,7 @@ namespace Hotelera
             this.menuAdministrador = new System.Windows.Forms.MenuStrip();
             this.no = new System.Windows.Forms.ToolStripMenuItem();
             this.hotelesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviciosAdicionalesDeHotelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeHabitaciónMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiposHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.amHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caractHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +73,7 @@ namespace Hotelera
             this.dgvHistorialCliente.Name = "dgvHistorialCliente";
             this.dgvHistorialCliente.Size = new System.Drawing.Size(907, 517);
             this.dgvHistorialCliente.TabIndex = 36;
+            this.dgvHistorialCliente.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHistorialCliente_CellFormatting);
             // 
             // flowLayoutPanel1
             // 
@@ -230,8 +229,7 @@ namespace Hotelera
             // no
             // 
             this.no.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hotelesMenuItem,
-            this.serviciosAdicionalesDeHotelMenuItem});
+            this.hotelesMenuItem});
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(73, 23);
             this.no.Text = "Hoteles";
@@ -239,33 +237,18 @@ namespace Hotelera
             // hotelesMenuItem
             // 
             this.hotelesMenuItem.Name = "hotelesMenuItem";
-            this.hotelesMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.hotelesMenuItem.Size = new System.Drawing.Size(130, 24);
             this.hotelesMenuItem.Text = "Hoteles";
             this.hotelesMenuItem.Click += new System.EventHandler(this.hotelesMenuItem_Click);
-            // 
-            // serviciosAdicionalesDeHotelMenuItem
-            // 
-            this.serviciosAdicionalesDeHotelMenuItem.Name = "serviciosAdicionalesDeHotelMenuItem";
-            this.serviciosAdicionalesDeHotelMenuItem.Size = new System.Drawing.Size(281, 24);
-            this.serviciosAdicionalesDeHotelMenuItem.Text = "Servicios adicionales de hotel";
-            this.serviciosAdicionalesDeHotelMenuItem.Click += new System.EventHandler(this.serviciosAdicionalesDeHotelMenuItem_Click);
             // 
             // tiposDeHabitaciónMenuItem
             // 
             this.tiposDeHabitaciónMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tiposHabMenuItem,
             this.amHabMenuItem,
             this.caractHabMenuItem});
             this.tiposDeHabitaciónMenuItem.Name = "tiposDeHabitaciónMenuItem";
             this.tiposDeHabitaciónMenuItem.Size = new System.Drawing.Size(155, 23);
             this.tiposDeHabitaciónMenuItem.Text = "Tipos de habitación";
-            // 
-            // tiposHabMenuItem
-            // 
-            this.tiposHabMenuItem.Name = "tiposHabMenuItem";
-            this.tiposHabMenuItem.Size = new System.Drawing.Size(275, 24);
-            this.tiposHabMenuItem.Text = "Tipos de habitación";
-            this.tiposHabMenuItem.Click += new System.EventHandler(this.tiposHabMenuItem_Click);
             // 
             // amHabMenuItem
             // 
@@ -392,9 +375,7 @@ namespace Hotelera
         private System.Windows.Forms.MenuStrip menuAdministrador;
         private System.Windows.Forms.ToolStripMenuItem no;
         private System.Windows.Forms.ToolStripMenuItem hotelesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem serviciosAdicionalesDeHotelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeHabitaciónMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiposHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem amHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caractHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosMenuItem;

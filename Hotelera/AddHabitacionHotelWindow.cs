@@ -38,13 +38,13 @@ namespace Hotelera
             else
             {
                 EnlaceDB enlace = new EnlaceDB();
-                if (enlace.Gestion_Hab("I",0,Convert.ToInt32(txtNoHab.Text),Convert.ToInt32(txtPiso.Text),idHotel,Convert.ToInt32(txtTipoHab.SelectedValue),1,idUsuario))
-                {
-                    this.Controls.Clear();
-                    MessageBox.Show("Habitacion registrada exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.InitializeComponent();
-                    actualizar();
-                }
+                //if (enlace.Gestion_Hab("I",0,Convert.ToInt32(txtNoHab.Text),Convert.ToInt32(txtPiso.Text),idHotel,Convert.ToInt32(txtTipoHab.SelectedValue),1,idUsuario))
+                //{
+                //    this.Controls.Clear();
+                //    MessageBox.Show("Habitacion registrada exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    this.InitializeComponent();
+                //    actualizar();
+                //}
             }
         }
 
@@ -63,13 +63,13 @@ namespace Hotelera
                 else
                 {
                     EnlaceDB enlace = new EnlaceDB();
-                    if (enlace.Gestion_Hab("U", Convert.ToInt32(dgvHabitaciones.Rows[dgvHabitaciones.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(txtNoHab.Text), Convert.ToInt32(txtPiso.Text), idHotel, Convert.ToInt32(txtTipoHab.SelectedValue), 1, idUsuario))
-                    {
-                        this.Controls.Clear();
-                        MessageBox.Show("Habitacion actualizada exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.InitializeComponent();
-                        actualizar();
-                    }
+                    //if (enlace.Gestion_Hab("U", Convert.ToInt32(dgvHabitaciones.Rows[dgvHabitaciones.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(txtNoHab.Text), Convert.ToInt32(txtPiso.Text), idHotel, Convert.ToInt32(txtTipoHab.SelectedValue), 1, idUsuario))
+                    //{
+                    //    this.Controls.Clear();
+                    //    MessageBox.Show("Habitacion actualizada exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    this.InitializeComponent();
+                    //    actualizar();
+                    //}
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace Hotelera
             else
             {
                 EnlaceDB enlace = new EnlaceDB();
-                if(enlace.Gestion_Hab("D", Convert.ToInt32(dgvHabitaciones.Rows[dgvHabitaciones.CurrentRow.Index].Cells[0].Value),0,0,0,0,0,0))
+                if(enlace.Gestion_Hab("D", Convert.ToInt32(dgvHabitaciones.Rows[dgvHabitaciones.CurrentRow.Index].Cells[0].Value),0,0))
                 {
                     this.Controls.Clear();
                     MessageBox.Show("Habitacion eliminada exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -103,7 +103,7 @@ namespace Hotelera
         private void actualizar()
         {
             EnlaceDB enlace = new EnlaceDB();
-            dgvHabitaciones.DataSource = enlace.get_Hab("S", idHotel);
+            dgvHabitaciones.DataSource = enlace.get_Hab("S");
             txtTipoHab.DataSource = enlace.get_Combobox("SP_MostrarTiposHab");
             txtTipoHab.DisplayMember = "nombre";
             txtTipoHab.ValueMember = "ID";

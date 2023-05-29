@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Hotelera
 {
-    public partial class ReservacionAgregarWindow : Form
+    public partial class ReservacionExtensionWindow : Form
     {
         int idReserv, idHotel, idUsuario;
         string fechaAReservar, fechaAReservar2, fechaOps;
-        public ReservacionAgregarWindow(int idReservParam, int idHotelParam, int idUsuarioParam, string fechaAReservarParam, string fechaAReservar2Param, string fechaOpsParam)
+        public ReservacionExtensionWindow(int idReservParam, int idHotelParam, int idUsuarioParam, string fechaAReservarParam, string fechaAReservar2Param, string fechaOpsParam)
         {
             idUsuario = idUsuarioParam;
             idReserv = idReservParam;
@@ -52,9 +52,14 @@ namespace Hotelera
             else
             {
                 EnlaceDB enlace = new EnlaceDB();
-                if (enlace.Gestion_HabitacionesReservaciones("I", 0, idReserv, idHotel, 0, Convert.ToInt32(dgvHabitaciones.Rows[dgvHabitaciones.CurrentRow.Index].Cells[0].Value), 0, Convert.ToInt32(txtCantPersonas.Text),fechaAReservar,fechaAReservar2))
+                int i = 1;
+                while (i <= Convert.ToInt32(txtCantHabs.Text.Trim()))
                 {
-                    MessageBox.Show("Habitacion agregada exitosamente a la reservacion!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    i++;
+                    if (enlace.Gestion_HabitacionesReservaciones("I", 0, idReserv, idHotel, 0, Convert.ToInt32(dgvHabitaciones.Rows[dgvHabitaciones.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(txtCantHabs.Text), Convert.ToInt32(txtCantPersonas.Text), fechaAReservar, fechaAReservar2))
+                    {
+                        //MessageBox.Show("Habitacion agregada exitosamente a la reservacion!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 this.Controls.Clear();
                 this.InitializeComponent();
@@ -97,7 +102,6 @@ namespace Hotelera
         private void actualizarTablas() {
             EnlaceDB enlace = new EnlaceDB();
             dgvHabitaciones.DataSource = enlace.get_BusqTiposHab("R", idHotel, fechaAReservar, fechaAReservar2);
-            dgvServicios.DataSource = enlace.get_ServiciosReservaciones("R", 0, idReserv, 0, idHotel);
         }
 
         private void btnGestHabReserv_Click(object sender, EventArgs e)
@@ -108,23 +112,17 @@ namespace Hotelera
             actualizarTotal();
         }
 
-        private void btnAggServAdicReserv_Click(object sender, EventArgs e)
-        {
-            EnlaceDB enlace = new EnlaceDB();
-            if (enlace.Gestion_ServAdicionalesReservaciones("I", 0, idReserv, Convert.ToInt32(dgvServicios.Rows[dgvServicios.CurrentRow.Index].Cells[0].Value),0))
-            { 
-                MessageBox.Show("Servicio agregado exitosamente a la reservacion!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                actualizarTablas();
-                actualizarTotal();
-            }
-        }
-
         private void txtCantHabs_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
+        }
+
+        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void txtCantPersonas_KeyPress(object sender, KeyPressEventArgs e)
@@ -146,34 +144,6 @@ namespace Hotelera
         private void btnContReserv_Click(object sender, EventArgs e)
         {
             EnlaceDB enlace = new EnlaceDB();
-            if (txtAnticipo.Text == "")
-            {
-                MessageBox.Show("Introduzca un monto de anticipo a dar", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (Convert.ToDouble(txtAnticipo.Text) > Convert.ToDouble(txtTotal.Text))
-            {
-                MessageBox.Show("El monto de anticipo es mayor al monto total", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (enlace.Gestion_Reservaciones("UA",
-                        idReserv,
-                        "",
-                        dtpInvisible.Value.ToString(), dtpInvisible.Value.ToString(),
-                        0,
-                        Convert.ToInt32(txtAnticipo.Text),
-                        0,
-                        0,
-                        0,
-                        0,
-                        dtpInvisible.Value.ToString(), dtpInvisible.Value.ToString()))
-                {
-                    MessageBox.Show("Reservación registrada exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClientesWindow clientesWindow = new ClientesWindow(idUsuario,fechaOps);
-                    clientesWindow.Show();
-                    this.Close();
-                }
-            }
         }
 
         private void dgvTiposHabitacion_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

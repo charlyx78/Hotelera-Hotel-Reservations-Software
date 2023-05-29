@@ -290,7 +290,7 @@ namespace Hotelera
 
             return tabla;
         }
-        public DataTable get_ServAdicionales()
+        public DataTable get_ServAdicionales(int idHotel)
         {
             var msg = "";
             DataTable tabla = new DataTable();
@@ -312,6 +312,8 @@ namespace Hotelera
                 parametro3.Value = DBNull.Value;
                 var parametro4 = _comandosql.Parameters.Add("@costo", SqlDbType.VarChar, 20);
                 parametro4.Value = DBNull.Value;
+                var parametro21 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
+                parametro21.Value = idHotel;
                 var parametro5 = _comandosql.Parameters.Add("@idAdministrador", SqlDbType.Int);
                 parametro5.Value = DBNull.Value;
 
@@ -532,7 +534,7 @@ namespace Hotelera
             return tabla;
         }
 
-        public DataTable get_Hab(string opc, int idHotel)
+        public DataTable get_Hab(string opc)
         {
             var msg = "";
             DataTable tabla = new DataTable();
@@ -548,12 +550,6 @@ namespace Hotelera
                 parametro1.Value = opc;
                 var parametro2 = _comandosql.Parameters.Add("@idHabitacion", SqlDbType.Int);
                 parametro2.Value = 0;
-                var parametro3 = _comandosql.Parameters.Add("@noHabitacion", SqlDbType.Int);
-                parametro3.Value = 0;
-                var parametro4 = _comandosql.Parameters.Add("@noPiso", SqlDbType.Int);
-                parametro4.Value = 0;
-                var parametro5 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
-                parametro5.Value = idHotel;
                 var parametro6 = _comandosql.Parameters.Add("@idTipoHabitacion", SqlDbType.Int);
                 parametro6.Value = 0;
                 var parametro7 = _comandosql.Parameters.Add("@registradoPor", SqlDbType.Int);
@@ -576,7 +572,7 @@ namespace Hotelera
 
             return tabla;
         }
-        public DataTable get_TiposHab(string opc)
+        public DataTable get_TiposHab(string opc, int idTipoHab, string nombre, int cantCamas, int idTipoCama, float costoPersona, int capPersonas, int cantHabs, int idNivelHab, int idHotel, int idAdmin)
         {
             var msg = "";
             DataTable tabla = new DataTable();
@@ -589,23 +585,29 @@ namespace Hotelera
                 _comandosql.CommandTimeout = 1200;
 
                 var parametro1 = _comandosql.Parameters.Add("@idTipoHabitacion", SqlDbType.Int);
-                parametro1.Value = DBNull.Value;
+                parametro1.Value = idTipoHab;
                 var parametro2 = _comandosql.Parameters.Add("@nombre", SqlDbType.VarChar, 20);
-                parametro2.Value = DBNull.Value;
+                parametro2.Value = nombre;
                 var parametro3 = _comandosql.Parameters.Add("@cantCamas", SqlDbType.Int);
-                parametro3.Value = DBNull.Value;
+                parametro3.Value = cantCamas;
                 var parametro4 = _comandosql.Parameters.Add("@idTipoCama", SqlDbType.Int);
-                parametro4.Value = DBNull.Value;
+                parametro4.Value = idTipoCama;
                 var parametro5 = _comandosql.Parameters.Add("@costoPersona", SqlDbType.Money);
-                parametro5.Value = DBNull.Value;
+                parametro5.Value = costoPersona;
                 var parametro6 = _comandosql.Parameters.Add("@capacidadPersonas", SqlDbType.Int);
-                parametro6.Value = DBNull.Value;
-                var parametro7 = _comandosql.Parameters.Add("@idNivelHabitacion", SqlDbType.Int);
-                parametro7.Value = DBNull.Value;
-                var parametro8 = _comandosql.Parameters.Add("@idUsuario", SqlDbType.Int);
-                parametro8.Value = DBNull.Value;
+                parametro6.Value = capPersonas;
+                var parametro71 = _comandosql.Parameters.Add("@cantHabs", SqlDbType.Int);
+                parametro71.Value = cantHabs;
+                var parametro8 = _comandosql.Parameters.Add("@idNivelHabitacion", SqlDbType.Int);
+                parametro8.Value = idNivelHab;
+                var parametro91 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
+                parametro91.Value = idHotel;
+                var parametro81 = _comandosql.Parameters.Add("@idUsuario", SqlDbType.Int);
+                parametro81.Value = idAdmin;
                 var parametro9 = _comandosql.Parameters.Add("@opcion", SqlDbType.Char, 1);
                 parametro9.Value = opc;
+
+
 
                 _adaptador.SelectCommand = _comandosql;
                 _adaptador.Fill(tabla);
@@ -1073,7 +1075,6 @@ namespace Hotelera
 
                 _adaptador.SelectCommand = _comandosql;
                 _adaptador.Fill(tabla);
-
             }
             catch (SqlException e)
             {
@@ -1170,11 +1171,13 @@ namespace Hotelera
                 var parametro21 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
                 parametro21.Value = idHotel;
                 var parametro22 = _comandosql.Parameters.Add("@fechaRegistro", SqlDbType.DateTime);
-                parametro22.Value = fechaRegistro;
+                parametro22.Value = DBNull.Value;
                 var parametro23 = _comandosql.Parameters.Add("@fechaOps", SqlDbType.Date);
                 parametro23.Value = fechaOps;
                 SqlParameter rowsAffectedParam = _comandosql.Parameters.Add("@rowsAffected", SqlDbType.Int);
                 rowsAffectedParam.Direction = ParameterDirection.Output;
+                var parametro24 = _comandosql.Parameters.Add("@idMetodoPagoAnticipo", SqlDbType.Int);
+                parametro24.Value = 1000;
 
                 _adaptador.SelectCommand = _comandosql;
                 _adaptador.Fill(tabla);
@@ -1192,7 +1195,7 @@ namespace Hotelera
 
             return tabla;
         }
-        public bool Gestion_Reservaciones(string opc, int cdoReserv, string cveCd, string fech1, string fech2, int estadoReserv, float anticipo, int metodoPago, int idCliente, int idOperativo, int idHotel, string fechaRegistro, string fechaOps)
+        public bool Gestion_Reservaciones(string opc, int cdoReserv, string cveCd, string fech1, string fech2, int estadoReserv, float anticipo, int metodoPago, int idCliente, int idOperativo, int idHotel, string fechaRegistro, string fechaOps, int idMetPagoAnticipo)
         {
             var msg = "";
             var add = true;
@@ -1250,6 +1253,8 @@ namespace Hotelera
                 rowsAffectedParam.Direction = ParameterDirection.Output;
                 var parametro23 = _comandosql.Parameters.Add("@fechaOps", SqlDbType.Date);
                 parametro23.Value = fechaOps;
+                var parametro24 = _comandosql.Parameters.Add("@idMetodoPagoAnticipo", SqlDbType.Int);
+                parametro24.Value = idMetPagoAnticipo;
 
                 _adaptador.InsertCommand = _comandosql;
 
@@ -1259,7 +1264,7 @@ namespace Hotelera
                 {
                     if (Convert.IsDBNull(rowsAffectedParam.Value))
                     {
-                        MessageBox.Show("Ya se realizó el Check In de esta reservación", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ya se realizó el Check In de esta reservación o la fecha de operaciones está fuera del rango de fecha de la reservación", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         add = false;
                     }
                 }
@@ -1267,7 +1272,7 @@ namespace Hotelera
                 {
                     if (Convert.IsDBNull(rowsAffectedParam.Value))
                     {
-                        MessageBox.Show("Ya se realizó el Check Out de esta reservación", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ya se realizó el Check Out de esta reservación o la fecha de operaciones está fuera del rango de fecha de la reservación o no se ha realizado el Check In", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         add = false;
                     }
                 }
@@ -1509,7 +1514,7 @@ namespace Hotelera
 
             return add;
         }
-        public bool Gestion_ServAdicionales(string opc, int idServAdicional, string nombre, string desc, float costo, int idAdmin)
+        public bool Gestion_ServAdicionales(string opc, int idServAdicional, string nombre, string desc, float costo, int idHotel, int idAdmin)
         {
             var msg = "";
             var add = true;
@@ -1529,8 +1534,10 @@ namespace Hotelera
                 parametro2.Value = nombre;
                 var parametro3 = _comandosql.Parameters.Add("@descripcion", SqlDbType.VarChar, 144);
                 parametro3.Value = desc;
-                var parametro4 = _comandosql.Parameters.Add("@costo", SqlDbType.VarChar, 20);
+                var parametro4 = _comandosql.Parameters.Add("@costo", SqlDbType.Money);
                 parametro4.Value = costo;
+                var parametro6 = _comandosql.Parameters.Add("@idHotel", SqlDbType.VarChar, 20);
+                parametro6.Value = idHotel;
                 var parametro5 = _comandosql.Parameters.Add("@idAdministrador", SqlDbType.Int);
                 parametro5.Value = idAdmin;
 
@@ -1593,7 +1600,7 @@ namespace Hotelera
 
             return add;
         }
-        public bool Gestion_Hab(string opc, int idHab, int noHab, int noPiso, int idHotel, int idTipoHab, int idDisp, int idUsuario)
+        public bool Gestion_Hab(string opc, int idHab, int idTipoHab, int idUsuario)
         {
             var msg = "";
             var add = true;
@@ -1609,12 +1616,6 @@ namespace Hotelera
                 parametro1.Value = opc;
                 var parametro2 = _comandosql.Parameters.Add("@idHabitacion", SqlDbType.Int);
                 parametro2.Value = idHab;
-                var parametro3 = _comandosql.Parameters.Add("@noHabitacion", SqlDbType.Int);
-                parametro3.Value = noHab;
-                var parametro4 = _comandosql.Parameters.Add("@noPiso", SqlDbType.Int);
-                parametro4.Value = noPiso;
-                var parametro5 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
-                parametro5.Value = idHotel;
                 var parametro6 = _comandosql.Parameters.Add("@idTipoHabitacion", SqlDbType.Int);
                 parametro6.Value = idTipoHab;
                 var parametro7 = _comandosql.Parameters.Add("@registradoPor", SqlDbType.Int);
@@ -1638,7 +1639,7 @@ namespace Hotelera
 
             return add;
         }
-        public bool Gestion_TipoHab(string opc, int idTipoHab, string nombre, int cantCamas, int idTipoCama, float costoPersona, int capPersonas, int idNivelHab, int idAdmin)
+        public bool Gestion_TipoHab(string opc, int idTipoHab, string nombre, int cantCamas, int idTipoCama, float costoPersona, int capPersonas, int cantHabs, int idNivelHab, int idHotel, int idAdmin)
         {
             var msg = "";
             var add = true;
@@ -1664,8 +1665,12 @@ namespace Hotelera
                 parametro6.Value = costoPersona;
                 var parametro7 = _comandosql.Parameters.Add("@capacidadPersonas", SqlDbType.Int);
                 parametro7.Value = capPersonas;
+                var parametro71 = _comandosql.Parameters.Add("@cantHabs", SqlDbType.Int);
+                parametro71.Value = cantHabs;
                 var parametro8 = _comandosql.Parameters.Add("@idNivelHabitacion", SqlDbType.Int);
                 parametro8.Value = idNivelHab;
+                var parametro91 = _comandosql.Parameters.Add("@idHotel", SqlDbType.Int);
+                parametro91.Value = idHotel;
                 var parametro9 = _comandosql.Parameters.Add("@idUsuario", SqlDbType.Int);
                 parametro9.Value = idAdmin;
 

@@ -42,12 +42,6 @@ namespace Hotelera
         //    this.Close();
         //}
 
-        private void tiposDeHabitaciónMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacionWindow = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacionWindow.Show();
-            this.Close();
-        }
 
         private void habilitarInhabilitarUsuarioMenuItem_Click(object sender, EventArgs e)
         {
@@ -342,20 +336,6 @@ namespace Hotelera
         {
             HotelesWindow hotelesWindow = new HotelesWindow(idUsuario);
             hotelesWindow.Show();
-            this.Close();
-        }
-
-        private void serviciosAdicionalesDeHotelMenuItem_Click(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-
-        private void tiposHabMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
             this.Close();
         }
 

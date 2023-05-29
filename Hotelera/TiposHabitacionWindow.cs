@@ -13,9 +13,10 @@ namespace Hotelera
 {
     public partial class TiposHabitacionWindow : Form
     {
-        int idUsuario;
-        public TiposHabitacionWindow(int idUsuarioParam)
+        int idUsuario, idHotel;
+        public TiposHabitacionWindow(int idUsuarioParam, int idHotelParam)
         {
+            idHotel = idHotelParam;
             idUsuario = idUsuarioParam;
             InitializeComponent();
         }
@@ -23,13 +24,6 @@ namespace Hotelera
         {
             EnlaceDB enlace = new EnlaceDB();
             actualizar();
-        }
-
-        private void tiposDeHabitaciónMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacionWindow = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacionWindow.Show();
-            this.Close();
         }
 
         private void salirMenuItem_Click(object sender, EventArgs e)
@@ -52,23 +46,30 @@ namespace Hotelera
             else
             {
                 EnlaceDB enlace = new EnlaceDB();
-                if(
-                enlace.Gestion_TipoHab(
-                    "I",
-                    0,
-                    txtNombre.Text.Trim(),
-                    Convert.ToInt32(txtCantCamas.Text.Trim()),
-                    Convert.ToInt32(txtTipoCama.SelectedValue),
-                    float.Parse(txtCostoPersona.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat),
-                    Convert.ToInt32(txtCapPersonas.Text.Trim()),
-                    Convert.ToInt32(txtNivelHab.SelectedValue),
-                    idUsuario))
-                {
+                int idTipoHabitacion = Convert.ToInt32(enlace.get_TiposHab
+                    (
+                        "I",
+                        0,
+                        txtNombre.Text.Trim(),
+                        Convert.ToInt32(txtCantCamas.Text.Trim()),
+                        Convert.ToInt32(txtTipoCama.SelectedValue),
+                        float.Parse(txtCostoPersona.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat),
+                        Convert.ToInt32(txtCapPersonas.Text.Trim()),
+                        Convert.ToInt32(txtCantHabs.Text.Trim()),
+                        Convert.ToInt32(txtNivelHab.SelectedValue),
+                        idHotel,
+                        idUsuario
+                    ).Rows[0][0]);
+                    int i = 1;
+                    while(i <= Convert.ToInt32(txtCantHabs.Text.Trim()))
+                    {
+                        enlace.Gestion_Hab("I", 0, idTipoHabitacion, idUsuario);
+                        i++;
+                    }
                     this.Controls.Clear();
                     MessageBox.Show("Tipo de habitacion registrado exitosamente!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.InitializeComponent();
                     actualizar();
-                }
             }
         }
         private void btnEditarTipoHab_Click(object sender, EventArgs e)
@@ -95,7 +96,9 @@ namespace Hotelera
                         Convert.ToInt32(txtTipoCama.SelectedValue),
                         float.Parse(txtCostoPersona.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat),
                         Convert.ToInt32(txtCapPersonas.Text.Trim()),
+                        Convert.ToInt32(txtCantHabs.Text.Trim()),
                         Convert.ToInt32(txtNivelHab.SelectedValue),
+                        idHotel,
                         idUsuario))
                     {
                         this.Controls.Clear();
@@ -127,6 +130,8 @@ namespace Hotelera
                         0,
                         0,
                         0,
+                        0,
+                        idHotel,
                         idUsuario))
                     {
                         this.Controls.Clear();
@@ -165,7 +170,7 @@ namespace Hotelera
         private void actualizar()
         {
             EnlaceDB enlace = new EnlaceDB();
-            dgvTiposHab.DataSource = enlace.get_TiposHab("S");
+            dgvTiposHab.DataSource = enlace.get_TiposHab("S",0,"",0,0,0,0,0,0, idHotel,0);
             txtTipoCama.DataSource = enlace.get_Combobox("SP_MostrarTiposCama");
             txtTipoCama.DisplayMember = "nombreTipoCama";
             txtTipoCama.ValueMember = "idTipoCama";
@@ -218,20 +223,6 @@ namespace Hotelera
         {
             HotelesWindow hotelesWindow = new HotelesWindow(idUsuario);
             hotelesWindow.Show();
-            this.Close();
-        }
-
-        private void serviciosAdicionalesDeHotelMenuItem_Click(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-
-        private void tiposHabMenuItem_Click(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
             this.Close();
         }
 
@@ -294,20 +285,6 @@ namespace Hotelera
         {
             HotelesWindow hotelesWindow = new HotelesWindow(idUsuario);
             hotelesWindow.Show();
-            this.Close();
-        }
-
-        private void serviciosAdicionalesDeHotelMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ServiciosAdicionalesWindow serviciosAdicionalesWindow = new ServiciosAdicionalesWindow(idUsuario);
-            serviciosAdicionalesWindow.Show();
-            this.Close();
-        }
-
-        private void tiposHabMenuItem_Click_1(object sender, EventArgs e)
-        {
-            TiposHabitacionWindow tiposHabitacion = new TiposHabitacionWindow(idUsuario);
-            tiposHabitacion.Show();
             this.Close();
         }
 

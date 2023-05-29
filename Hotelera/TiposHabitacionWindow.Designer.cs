@@ -53,15 +53,16 @@
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCapPersonas = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCantHabs = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNivelHab = new System.Windows.Forms.ComboBox();
             this.menuAdministrador = new System.Windows.Forms.MenuStrip();
             this.no = new System.Windows.Forms.ToolStripMenuItem();
             this.hotelesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviciosAdicionalesDeHotelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeHabitaciónMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiposHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.amHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caractHabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +83,7 @@
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel11.SuspendLayout();
             this.menuAdministrador.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +102,7 @@
             this.dgvTiposHab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTiposHab.Location = new System.Drawing.Point(3, 3);
             this.dgvTiposHab.Name = "dgvTiposHab";
-            this.dgvTiposHab.Size = new System.Drawing.Size(898, 513);
+            this.dgvTiposHab.Size = new System.Drawing.Size(898, 300);
             this.dgvTiposHab.TabIndex = 1;
             this.dgvTiposHab.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTiposHab_CellClick);
             this.dgvTiposHab.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTiposHab_CellFormatting);
@@ -109,7 +111,7 @@
             // 
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 522);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 309);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(898, 311);
             this.flowLayoutPanel3.TabIndex = 8;
@@ -212,6 +214,7 @@
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel7);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel9);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel10);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel11);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(174, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -360,11 +363,39 @@
             this.txtCapPersonas.TabIndex = 3;
             this.txtCapPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCapPersonas_KeyPress);
             // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.label2);
+            this.flowLayoutPanel5.Controls.Add(this.txtCantHabs);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(479, 66);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(232, 57);
+            this.flowLayoutPanel5.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cantidad de habitaciones";
+            // 
+            // txtCantHabs
+            // 
+            this.txtCantHabs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCantHabs.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantHabs.Location = new System.Drawing.Point(3, 22);
+            this.txtCantHabs.Name = "txtCantHabs";
+            this.txtCantHabs.Size = new System.Drawing.Size(225, 29);
+            this.txtCantHabs.TabIndex = 3;
+            // 
             // flowLayoutPanel11
             // 
             this.flowLayoutPanel11.Controls.Add(this.label5);
             this.flowLayoutPanel11.Controls.Add(this.txtNivelHab);
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(479, 66);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 129);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
             this.flowLayoutPanel11.Size = new System.Drawing.Size(232, 57);
             this.flowLayoutPanel11.TabIndex = 23;
@@ -407,8 +438,7 @@
             // no
             // 
             this.no.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hotelesMenuItem,
-            this.serviciosAdicionalesDeHotelMenuItem});
+            this.hotelesMenuItem});
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(73, 23);
             this.no.Text = "Hoteles";
@@ -416,33 +446,18 @@
             // hotelesMenuItem
             // 
             this.hotelesMenuItem.Name = "hotelesMenuItem";
-            this.hotelesMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.hotelesMenuItem.Size = new System.Drawing.Size(130, 24);
             this.hotelesMenuItem.Text = "Hoteles";
             this.hotelesMenuItem.Click += new System.EventHandler(this.hotelesMenuItem_Click_1);
-            // 
-            // serviciosAdicionalesDeHotelMenuItem
-            // 
-            this.serviciosAdicionalesDeHotelMenuItem.Name = "serviciosAdicionalesDeHotelMenuItem";
-            this.serviciosAdicionalesDeHotelMenuItem.Size = new System.Drawing.Size(281, 24);
-            this.serviciosAdicionalesDeHotelMenuItem.Text = "Servicios adicionales de hotel";
-            this.serviciosAdicionalesDeHotelMenuItem.Click += new System.EventHandler(this.serviciosAdicionalesDeHotelMenuItem_Click_1);
             // 
             // tiposDeHabitaciónMenuItem
             // 
             this.tiposDeHabitaciónMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tiposHabMenuItem,
             this.amHabMenuItem,
             this.caractHabMenuItem});
             this.tiposDeHabitaciónMenuItem.Name = "tiposDeHabitaciónMenuItem";
             this.tiposDeHabitaciónMenuItem.Size = new System.Drawing.Size(155, 23);
             this.tiposDeHabitaciónMenuItem.Text = "Tipos de habitación";
-            // 
-            // tiposHabMenuItem
-            // 
-            this.tiposHabMenuItem.Name = "tiposHabMenuItem";
-            this.tiposHabMenuItem.Size = new System.Drawing.Size(275, 24);
-            this.tiposHabMenuItem.Text = "Tipos de habitación";
-            this.tiposHabMenuItem.Click += new System.EventHandler(this.tiposHabMenuItem_Click_1);
             // 
             // amHabMenuItem
             // 
@@ -548,6 +563,8 @@
             this.flowLayoutPanel9.PerformLayout();
             this.flowLayoutPanel10.ResumeLayout(false);
             this.flowLayoutPanel10.PerformLayout();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
             this.menuAdministrador.ResumeLayout(false);
@@ -590,9 +607,7 @@
         private System.Windows.Forms.MenuStrip menuAdministrador;
         private System.Windows.Forms.ToolStripMenuItem no;
         private System.Windows.Forms.ToolStripMenuItem hotelesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem serviciosAdicionalesDeHotelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeHabitaciónMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiposHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem amHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caractHabMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosMenuItem;
@@ -603,5 +618,8 @@
         private System.Windows.Forms.ToolStripMenuItem reporteDeVentasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialDeClienteMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCantHabs;
     }
 }

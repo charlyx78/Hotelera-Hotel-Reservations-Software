@@ -47,7 +47,7 @@ namespace Hotelera
                 ticket.TextoIzquierda("Código de reservacion: " + dgvFact.Rows[dgvFact.CurrentRow.Index].Cells[3].Value.ToString());
                 ticket.TextoIzquierda("Fecha de llegada: " + dgvFact.Rows[dgvFact.CurrentRow.Index].Cells[4].Value.ToString());
                 DateTime fechaActual = new DateTime();
-                string fechaActualFormateada = DateTime.Now.ToString("yyyy-MM-dd");
+                string fechaActualFormateada = dgvFact.Rows[dgvFact.CurrentRow.Index].Cells[5].Value.ToString();
                 ticket.TextoIzquierda("Fecha de salida: " + fechaActualFormateada);
                 ticket.TextoIzquierda("");
                 EnlaceDB.CreaTicket.LineasGuion();
