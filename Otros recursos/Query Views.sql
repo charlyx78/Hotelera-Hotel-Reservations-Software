@@ -36,19 +36,50 @@ SELECT
 	,YEAR(R.fechaRegistro) 'Año'
 	,MONTH(R.fechaRegistro) 'Mes'
 	,TH.nombre 'Tipo de habitacion'
-	,COUNT(TH.idTipoHabitacion) 'Cantidad de habitaciones'
-	,CASE 
-	 WHEN SUM(CASE WHEN HAB.idDisponibilidad = 1 THEN 1 ELSE 0 END) <> 0
-	 THEN (SUM(CASE WHEN HAB.idDisponibilidad = 0 THEN 1 ELSE 0 END) / SUM(CASE WHEN HAB.idDisponibilidad = 1 THEN 1 ELSE 0 END)) * 100
-	 ELSE 0
-	 END AS 'Porcentaje de disponibilidad'
+	,(SELECT COUNT(*) FROM Habitacion HAB2 WHERE HAB2.idTipoHabitacion = TH.idTipoHabitacion) 'Cantidad de habitaciones'
+	, 
+		FLOOR(( 
+			(SUM(CASE WHEN R.idEstadoReserv = 1004 THEN 1 ELSE 0 END) * 1.0)
+			/ 
+			((SELECT COUNT(*) FROM Habitacion HAB2 WHERE HAB2.idTipoHabitacion = TH.idTipoHabitacion) * 1.0) * 100
+		)) 'Porcentaje de ocupación'
 	,SUM(RH.cantPersonas) 'Cantidad de personas hospedadas'
-FROM Reservacion_Habitacion RH
-inner JOIN Habitacion HAB
+FROM TipoHabitacion TH
+RIGHT JOIN Habitacion HAB
+ON HAB.idTipoHabitacion=TH.idTipoHabitacion
+RIGHT JOIN Reservacion_Habitacion RH
+ON RH.idHabitacion=HAB.idHabitacion
+INNER JOIN Reservacion R
+ON RH.cdoReservacion=R.cdoReservacion
+INNER JOIN Hotel H
+ON TH.idHotel=H.idHotel
+GROUP BY 
+	 H.cveCiudad
+	,H.nombre 
+	,YEAR(R.fechaRegistro)
+	,MONTH(R.fechaRegistro)
+	,TH.nombre
+	,TH.idTipoHabitacion;
+
+CREATE VIEW VW_ReporteOcupacionResumen
+AS
+SELECT 
+	 H.cveCiudad 'Ciudad'
+	,H.nombre 'Nombre del hotel'
+	,YEAR(R.fechaRegistro) 'Año'
+	,MONTH(R.fechaRegistro) 'Mes'
+	,	
+		FLOOR(( 
+			(SUM(CASE WHEN R.idEstadoReserv = 1004 THEN 1 ELSE 0 END) * 1.0)
+			/ 
+			((SELECT COUNT(*) FROM Habitacion HAB2) * 1.0) * 100
+		)) 'Porcentaje de ocupación'
+FROM Habitacion HAB
+right JOIN Reservacion_Habitacion RH 
 ON RH.idHabitacion=HAB.idHabitacion
 inner JOIN TipoHabitacion TH
 ON HAB.idTipoHabitacion=TH.idTipoHabitacion
-JOIN Reservacion R
+right JOIN Reservacion R
 ON RH.cdoReservacion=R.cdoReservacion
 inner JOIN Hotel H
 ON R.idHotel=H.idHotel
@@ -74,6 +105,7 @@ SELECT
 FROM Hotel H
 RIGHT JOIN Reservacion R
 ON H.idHotel = R.idHotel
+WHERE R.idEstadoReserv=1003
 GROUP BY 
 	 H.cveCiudad 
 	,H.nombre 
@@ -113,5 +145,22 @@ INNER JOIN Cliente C
 ON R.idCliente=C.idCliente
 INNER JOIN Ciudad CD
 ON C.cveCiudad=CD.cveCiudad
+
+CREATE VIEW VW_HeaderFactura
+AS
+	SELECT 
+			idFactura 'Número de factura'
+		,H.nombre 'Nombre del hotel'
+		,CONCAT(C.nombre,' ',C.apellidoPaterno,' ',C.apellidoMaterno) 'Nombre del cliente'
+		,R.cdoReservacion 'Código de reservación'
+		,R.fechaLlegada 'Fecha de llegada'
+		,R.fechaSalida 'Fecha de salida'
+	FROM Factura F
+	INNER JOIN Reservacion R
+	ON F.cdoReservacion=R.cdoReservacion
+	INNER JOIN Hotel H
+	ON R.idHotel=H.idHotel
+	INNER JOIN Cliente C
+	ON R.idCliente=C.idCliente
 
 

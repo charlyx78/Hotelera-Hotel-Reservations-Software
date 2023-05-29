@@ -112,11 +112,14 @@ CREATE TABLE ServicioAdicional (
 	nombre				VARCHAR(40) NOT NULL,
 	descripcion			VARCHAR(144),
 	costo				MONEY		NOT NULL,
+	idHotel				INT			NOT NULL,
 	registradoPor		INT			NOT NULL, 
 	fechaRegistro		DATETIME	NOT NULL	DEFAULT(GETDATE()),
 	idEstado			BIT		NOT NULL
 	CONSTRAINT PK_idServicioAdicional
 		PRIMARY KEY(idServicioAdicional),
+	CONSTRAINT FK_idHotel_ServicioAdicional 
+		FOREIGN KEY (idHotel) REFERENCES Hotel(idHotel),
 	CONSTRAINT FK_idUsuario_ServicioAdicional 
 		FOREIGN KEY(registradoPor) REFERENCES Usuario(idUsuario),
 	CONSTRAINT FK_idEstado_ServicioAdicional
@@ -161,7 +164,9 @@ CREATE TABLE TipoHabitacion (
 	idTipoCama			INT			NOT NULL,
 	costoPersona		MONEY		NOT NULL,
 	capacidadPersonas	INT			NOT NULL,
+	cantHabs			INT			NOT NULL,
 	idNivelHabitacion	INT			NOT NULL,
+	idHotel				INT			NOT NULL,
 	registradoPor		INT			NOT NULL,
 	fechaRegistro		DATETIME	NOT NULL,
 	idEstado			BIT			NOT NULL
@@ -174,7 +179,9 @@ CREATE TABLE TipoHabitacion (
 	CONSTRAINT FK_idAdministrador_TipoHabitacion	
 		FOREIGN KEY(registradoPor) REFERENCES Usuario(idUsuario),
 	CONSTRAINT FK_idEstatus_TipoHabitacion
-		FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+		FOREIGN KEY (idEstado) REFERENCES Estado(idEstado),
+	CONSTRAINT FK_idHotel_TipoHabitacion
+		FOREIGN KEY (idHotel) REFERENCES Hotel(idHotel)
 );
 
 CREATE TABLE DisponibilidadHabitacion(
@@ -191,21 +198,16 @@ INSERT INTO DisponibilidadHabitacion VALUES
 CREATE TABLE Habitacion (
 	idHabitacion		INT			NOT NULL	IDENTITY(1000,1),
 	noHabitacion		INT			NOT NULL,
-	noPiso				SMALLINT	NOT NULL,
-	idHotel				INT			NOT NULL,
 	idTipoHabitacion	INT			NOT NULL,
-	idDisponibilidad	TINYINT		NOT NULL,
 	registradoPor		INT			NOT NULL,
 	fechaRegistro		DATETIME	NOT NULL	DEFAULT(GETDATE()),
 	idEstado			BIT			NOT NULL
 	CONSTRAINT PK_idHabitacion
 		PRIMARY KEY(idHabitacion),
 	CONSTRAINT UQ_noHabitacion_idHotel 
-		UNIQUE (noHabitacion, idHotel),
+		UNIQUE (noHabitacion, idTipoHabitacion),
 	CONSTRAINT FK_idTipoHabitacion_Habitacion
 		FOREIGN KEY(idTipoHabitacion) REFERENCES TipoHabitacion(idTipoHabitacion),
-	CONSTRAINT FK_idDisponibilidad_Habitacion 
-		FOREIGN KEY(idDisponibilidad)REFERENCES DisponibilidadHabitacion(idDisponibilidad),
 	CONSTRAINT FK_idUsuario_Habitacion 
 		FOREIGN KEY(registradoPor) REFERENCES Usuario(idUsuario),
 	CONSTRAINT FK_idEstado_Habitacion 
@@ -374,6 +376,10 @@ CREATE TABLE Reservacion (
 	CONSTRAINT FK_idEstatus_Reservacion
 		FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
 );
+ALTER TABLE Reservacion ADD idMetodoPagoAnticipo INT NOT NULL
+ALTER table Reservacion ADD CONSTRAINT FK_idMetodoPagoAnticipo_Reservacion 
+foreign key (idMetodoPagoAnticipo) references MetodoPago(idMetodoPago)
+ALTER TABLE DROP COLUMN 
 
 CREATE TABLE Reservacion_Habitacion (
 	idReserv_Hab			INT NOT NULL IDENTITY(1000,1),
@@ -429,7 +435,6 @@ CREATE TABLE Cancelacion (
 
 CREATE TABLE Factura (
 	idFactura		INT NOT NULL IDENTITY(1000,1),
-	noFactura		INT NOT NULL,
 	cdoReservacion	INT NOT NULL
 	CONSTRAINT PK_idFactura
 		PRIMARY KEY(idFactura),
@@ -524,7 +529,31 @@ INSERT INTO EstadoReservacion(nombre) VALUES
 	('Confirmada'),
 	('Pendiente'),
 	('Cancelada'),
-	('Pagada')
+	('Pagada'),
+	('Hospedada')
+
+	
+INSERT INTO Pais (cvePais, nombre) VALUES
+	('MEX', 'México'),
+	('USA', 'Estados Unidos'),
+	('CAN', 'Canadá'),
+	('ESP', 'España'),
+	('FRA', 'Francia'),
+	('ITA', 'Italia'),
+	('ALE', 'Alemania'),
+	('CHI', 'China'),
+	('JAP', 'Japón'),
+	('BRA', 'Brasil'),
+	('ARG', 'Argentina'),
+	('COL', 'Colombia'),
+	('PER', 'Perú'),
+	('VEN', 'Venezuela'),
+	('CUB', 'Cuba'),
+	('PRI', 'Puerto Rico'),
+	('RUS', 'Rusia'),
+	('IND', 'India'),
+	('AUS', 'Australia'),
+	('NZL', 'Nueva Zelanda');
 
 INSERT INTO Ciudad (cveCiudad, nombre, cvePais) VALUES
     ('CUN', 'Cancún', 'MEX'),
@@ -548,39 +577,23 @@ INSERT INTO Ciudad (cveCiudad, nombre, cvePais) VALUES
     ('SJD', 'San José del Cabo', 'MEX'),
     ('ZIH', 'Zihuatanejo', 'MEX');
 
-INSERT INTO Pais (cvePais, nombre) VALUES
-	('MEX', 'México'),
-	('USA', 'Estados Unidos'),
-	('CAN', 'Canadá'),
-	('ESP', 'España'),
-	('FRA', 'Francia'),
-	('ITA', 'Italia'),
-	('ALE', 'Alemania'),
-	('CHI', 'China'),
-	('JAP', 'Japón'),
-	('BRA', 'Brasil'),
-	('ARG', 'Argentina'),
-	('COL', 'Colombia'),
-	('PER', 'Perú'),
-	('VEN', 'Venezuela'),
-	('CUB', 'Cuba'),
-	('PRI', 'Puerto Rico'),
-	('RUS', 'Rusia'),
-	('IND', 'India'),
-	('AUS', 'Australia'),
-	('NZL', 'Nueva Zelanda');
+	INSERT INTO MetodoPago (nombre)
+	VALUES
+	('Efectivo'),('Tarjeta de crédito'),('Tarjeta de débito')
 
 			SELECT * FROM Reservacion
-		SELECT * FROM Reservacion_Habitacion
-		select * from TipoHabitacion
+		SELECT * FROM Reservacion_ServicioAdicional
+		select * from Reservacion_Habitacion
 		select * from Habitacion
 		UPDATE Habitacion set idDisponibilidad  =1 
 	SELECT * FROM ServicioAdicional
-	SELECT * FROM Reservacion_ServicioAdicional
-		SELECT * FROM TipoHabitacion
-		select * from EstadoReservacion
+	SELECT * FROM TipoHabitacion
+		--SELECT * FROM TipoHabitacion
+		--select * from EstadoReservacion
+		DELETE Factura
 	DELETE Reservacion_Habitacion 
 	DELETE Reservacion_ServicioAdicional
 	DELETE Reservacion where cdoReservacion=3044
-	update Habitacion set idDisponibilidad=1 where idHabitacion=1000
+	update Reservacion set idEstadoReserv=1003 where cdoReservacion=1028
 	insert into EstadoReservacion(nombre)values('Hospedada')
+	select * from EstadoReservacion

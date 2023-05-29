@@ -8,21 +8,9 @@ AS
 BEGIN
 	IF @opcion='F'
 	BEGIN
-		SELECT 
-			 idFactura 'Número de factura'
-			,H.nombre 'Nombre del hotel'
-			,CONCAT(C.nombre,' ',C.apellidoPaterno,' ',C.apellidoMaterno) 'Nombre del cliente'
-			,R.cdoReservacion 'Código de reservación'
-			,R.fechaLlegada 'Fecha de llegada'
-			,R.fechaSalida 'Fecha de salida'
-		FROM Factura F
-		INNER JOIN Reservacion R
-		ON F.cdoReservacion=R.cdoReservacion
-		INNER JOIN Hotel H
-		ON R.idHotel=H.idHotel
-		INNER JOIN Cliente C
-		ON R.idCliente=C.idCliente
-		WHERE R.cdoReservacion=@cdoReservacion
+		SELECT [Número de factura],[Nombre del hotel],[Nombre del cliente],[Código de reservación],[Fecha de llegada],[Fecha de salida] 
+		FROM VW_HeaderFactura
+		WHERE [Código de reservación]=@cdoReservacion
 	END
 
 	IF @opcion='H'
@@ -150,7 +138,7 @@ BEGIN
 	BEGIN
 		SELECT Ciudad,[Nombre del hotel], Año, Mes, [Porcentaje de ocupación] FROM VW_ReporteOcupacionResumen ROR
 		INNER JOIN Hotel H
-		ON RO.[Nombre del hotel]=H.nombre
+		ON ROR.[Nombre del hotel]=H.nombre
 		INNER JOIN Ciudad C
 		ON H.cveCiudad=C.cveCiudad
 		WHERE H.cveCiudad = @cveCiudad
@@ -166,7 +154,7 @@ BEGIN
 	BEGIN
 		SELECT Ciudad,[Nombre del hotel], Año, Mes, [Porcentaje de ocupación] FROM VW_ReporteOcupacionResumen ROR
 		INNER JOIN Hotel H
-		ON RO.[Nombre del hotel]=H.nombre
+		ON ROR.[Nombre del hotel]=H.nombre
 		WHERE H.idHotel=@idHotel
 	END
 END
@@ -240,7 +228,7 @@ BEGIN
 	IF @opcion='I'
 	BEGIN
 		IF NOT EXISTS (
-			SELECT *
+			SELECT 1
 			FROM Reservacion_ServicioAdicional
 			WHERE cdoReservacion = @cdoReservacion
 			AND idServicioAdicional = @idServAdicional
@@ -273,12 +261,16 @@ BEGIN
 		WHERE cdoReservacion = @cdoReservacion
 	END
 
+	IF @opcion='RH'
+	BEGIN
+		SELECT idHotel from Reservacion WHERE cdoReservacion=@cdoReservacion
+	END
+
 	IF @opcion='R'
 	BEGIN
 		SELECT SA.idServicioAdicional 'ID', nombre 'Nombre', costo 'Costo' 
-		FROM Hotel_ServicioAdicional HSA
-		INNER JOIN ServicioAdicional SA ON HSA.idServicioAdicional = SA.idServicioAdicional
-		WHERE idHotel = @idHotel AND HSA.idEstado = 1 AND
+		FROM ServicioAdicional SA
+		WHERE SA.idHotel = @idHotel AND SA.idEstado = 1 AND
 		NOT EXISTS (
 			SELECT 1 FROM Reservacion_ServicioAdicional RSA 
 			WHERE RSA.idServicioAdicional = SA.idServicioAdicional 
@@ -324,19 +316,22 @@ BEGIN
 			,(SELECT 
 				TOP 1 H.idHabitacion 
 				FROM Habitacion H 
+				INNER JOIN TipoHabitacion TH
+				ON H.idTipoHabitacion = TH.idTipoHabitacion
 				LEFT JOIN Reservacion_Habitacion RH 
 				ON RH.idHabitacion=H.idHabitacion
 				LEFT JOIN Reservacion R
 				ON RH.cdoReservacion=R.cdoReservacion
 				WHERE
-				H.idHotel = @idHotel 
+				TH.idHotel = @idHotel 
 				AND NOT EXISTS (
 					SELECT 1
 					FROM Reservacion_Habitacion RH
 					INNER JOIN Reservacion R ON RH.cdoReservacion = R.cdoReservacion
 					WHERE RH.idHabitacion = H.idHabitacion
 						AND ((R.fechaLlegada <= @fechaAReservar2 AND R.fechaSalida >= @fechaAReservar) OR
-							(R.fechaLlegada <= @fechaAReservar AND R.fechaSalida >= @fechaAReservar2))				
+							(R.fechaLlegada <= @fechaAReservar AND R.fechaSalida >= @fechaAReservar2)
+							)	
 				)
 				AND H.idTipoHabitacion=@idTipoHabitacion
 			)
@@ -348,10 +343,9 @@ BEGIN
 	IF @opcion = 'S'
 	BEGIN
 		SELECT 
-			RH.idReserv_Hab			'ID'		
+		RH.idReserv_Hab				'ID'		
 		,TH.nombre					'Tipo de habitación'
 		,H.noHabitacion				'Número de habitación'
-		,H.noPiso					'Número de piso'
 		,RH.cantPersonas			'Cantidad de personas'
 		,(TH.costoPersona*RH.cantPersonas) 'Monto'
 		FROM Reservacion_Habitacion RH
@@ -359,7 +353,9 @@ BEGIN
 		ON RH.idHabitacion = H.idHabitacion
 		INNER JOIN TipoHabitacion TH
 		ON H.idTipohabitacion = TH.idTipoHabitacion
-		WHERE cdoReservacion = @cdoReservacion
+		INNER JOIN Reservacion R 
+		ON R.cdoReservacion=RH.cdoReservacion
+		WHERE RH.cdoReservacion = 1028 
 	END
 
 	IF @opcion = 'D'
@@ -389,7 +385,8 @@ CREATE PROCEDURE SP_GestionReservaciones
 	,@montoPendiente	MONEY			
 	,@montoSubtotal		MONEY			
 	,@montoTotal		MONEY			
-	,@idMetodoPago		INT				
+	,@idMetodoPago		INT		
+	,@idMetodoPagoAnticipo	INT
 	,@idCliente			INT				
 	,@registradoPor		INT						
 	,@idHotel			INT		
@@ -420,7 +417,8 @@ BEGIN
 			,registradoPor	
 			,fechaRegistro	
 			,idHotel		
-			,idEstado		
+			,idEstado
+			,idMetodoPagoAnticipo
 		) 
 		VALUES (			
 			 @cveCiudad		
@@ -440,9 +438,10 @@ BEGIN
 			,1000	
 			,@idCliente		
 			,@registradoPor	
-			,@fechaRegistro
+			,getdate()
 			,@idHotel		
-			,1							
+			,1			
+			,@idMetodoPagoAnticipo
 		)
 	END 
 
@@ -450,7 +449,15 @@ BEGIN
 	BEGIN
 		SELECT 
 			R.cdoReservacion 'ID',
-			R.montoTotal 'Total'
+			R.montoTotal 'Total',
+			R.montoPendiente
+		FROM Reservacion R
+		WHERE R.cdoReservacion = @cdoReservacion
+	END 
+	IF @opcion = 'SFS'
+	BEGIN
+		SELECT 
+			fechaSalida
 		FROM Reservacion R
 		WHERE R.cdoReservacion = @cdoReservacion
 	END 
@@ -478,7 +485,7 @@ BEGIN
 	BEGIN
 		UPDATE Reservacion 
 		SET montoPendiente=0,
-		idMetodoPago=1003,
+		idMetodoPago=1001,
 		idEstadoReserv=1003
 		WHERE cdoReservacion=@cdoReservacion
 	END
@@ -496,7 +503,7 @@ BEGIN
 	BEGIN
 		UPDATE Reservacion 
 		SET montoPendiente=0,
-		idMetodoPago=1001,
+		idMetodoPago=1000,
 		idEstadoReserv=1003
 		WHERE cdoReservacion=@cdoReservacion
 	END
@@ -508,7 +515,8 @@ BEGIN
 		idEstadoReserv=1000
 		WHERE cdoReservacion = @cdoReservacion;
 		UPDATE Reservacion 
-		SET montoPendiente = montoTotal-montoAnticipo
+		SET montoPendiente = montoTotal-montoAnticipo,
+		idMetodoPagoAnticipo = @idMetodoPagoAnticipo
 		WHERE cdoReservacion = @cdoReservacion;
 	END
 
@@ -537,18 +545,24 @@ BEGIN
 		UPDATE Reservacion 
 		SET fechaSalida=@fechaSalida
 		WHERE cdoReservacion=@cdoReservacion;
+		UPDATE Reservacion 
+		SET idEstadoReserv=1004
+		WHERE cdoReservacion=@cdoReservacion;
 	END
 
 	IF @opcion = 'CHO'
 	BEGIN
 		IF(SELECT cdoCheckOut FROM Reservacion WHERE cdoReservacion = @cdoReservacion) IS NULL
 		BEGIN
-			IF(@fechaOps <= (SELECT fechaSalida FROM Reservacion WHERE cdoReservacion = @cdoReservacion))
+			IF(@fechaOps <= (SELECT fechaSalida FROM Reservacion WHERE cdoReservacion = @cdoReservacion)
+			OR (@fechaOps >= (SELECT fechaLlegada FROM Reservacion WHERE cdoReservacion = @cdoReservacion)
+			AND (SELECT cdoCheckIn FROM Reservacion WHERE cdoReservacion = @cdoReservacion) <> NULL))
 			BEGIN
 				UPDATE Reservacion 
 				SET 
 				cdoCheckOut = NEWID(),
-				fechaCheckOut = @fechaOps
+				fechaCheckOut = @fechaOps,
+				idEstadoReserv=1003
 				WHERE cdoReservacion = @cdoReservacion;
 				SET @rowsAffected = @@ROWCOUNT;
 				INSERT INTO Factura(cdoReservacion)VALUES(@cdoReservacion);
@@ -703,7 +717,7 @@ SET NOCOUNT OFF;
 	IF @opcion = 'I'
 	BEGIN 
 		IF NOT EXISTS (
-			SELECT *
+			SELECT 1
 			FROM Hotel_ServicioAdicional
 			WHERE idHotel = @idHotel
 			AND idServicioAdicional = @idServAdicionales
@@ -740,14 +754,15 @@ CREATE PROCEDURE SP_GestionServAdicionales
 	@nombre					VARCHAR(40) ,
 	@descripcion			VARCHAR(144),
 	@costo					MONEY,
+	@idHotel				INT,
 	@idAdministrador		INT,
 	@opcion					CHAR(1)
 AS
 BEGIN
 	IF @opcion = 'I'
 	BEGIN 
-		INSERT INTO ServicioAdicional(nombre, descripcion, costo, registradoPor, fechaRegistro, idEstado)
-		VALUES (@nombre,@descripcion,@costo,@idAdministrador,GETDATE(),1);
+		INSERT INTO ServicioAdicional(nombre, descripcion, costo, idHotel, registradoPor, fechaRegistro, idEstado)
+		VALUES (@nombre,@descripcion,@costo,@idHotel,@idAdministrador,GETDATE(),1);
 	END
 
 	IF @opcion='S'
@@ -758,7 +773,7 @@ BEGIN
 		ON SA.registradoPor = U.idUsuario
 		INNER JOIN Persona P
 		ON U.idPersona = P.idPersona
-		WHERE SA.idEstado=1;
+		WHERE SA.idHotel = @idHotel AND SA.idEstado=1;
 	END
 
 	IF @opcion = 'U'
@@ -795,7 +810,7 @@ SET NOCOUNT OFF;
 	IF @opcion = 'I'
 	BEGIN 
 		IF NOT EXISTS (
-			SELECT *
+			SELECT 1
 			FROM TipoHabitacion_CaracteristicaHabitacion
 			WHERE idTipoHabitacion = @idTipoHabitacion
 			AND idCaractHab = @idCaracteristicaHabitacion
@@ -839,7 +854,7 @@ SET NOCOUNT OFF;
 	IF @opcion = 'I'
 	BEGIN 
 		IF NOT EXISTS (
-			SELECT *
+			SELECT 1
 			FROM TipoHabitacion_AmenidadHabitacion
 			WHERE idTipoHabitacion = @idTipoHabitacion
 			AND idAmenidadHab = @idAmenidadHabitacion
@@ -886,7 +901,7 @@ SET NOCOUNT OFF;
 	IF @opcion = 'I'
 	BEGIN 
 		IF NOT EXISTS (
-			SELECT *
+			SELECT 1
 			FROM Hotel_TipoHabitacion
 			WHERE idHotel = @idHotel
 			AND idTipoHabitacion = @idTipoHabitacion
@@ -932,18 +947,18 @@ SET NOCOUNT OFF;
 					INNER JOIN Reservacion R ON RH.cdoReservacion = R.cdoReservacion
 					WHERE RH.idHabitacion = H2.idHabitacion
 						AND (
-							(R.fechaLlegada <= @fechaAReservar2 AND R.fechaSalida >= @fechaAReservar) OR
-							(R.fechaLlegada <= @fechaAReservar AND R.fechaSalida >= @fechaAReservar2)
+							(R.fechaLlegada <= @fechaAReservar2 AND R.fechaSalida >= @fechaAReservar and R.idEstadoReserv<>1003) OR
+							(R.fechaLlegada <= @fechaAReservar AND R.fechaSalida >= @fechaAReservar2 and R.idEstadoReserv<>1003)
 						)
+
 				)
 		) AS 'Habitaciones disponibles'
-		FROM
-		Habitacion H
-		INNER JOIN TipoHabitacion TH ON H.idTipoHabitacion = TH.idTipoHabitacion
+		FROM TipoHabitacion TH
+		LEFT JOIN Habitacion H ON H.idTipoHabitacion = TH.idTipoHabitacion
 		INNER JOIN TipoCama TC ON TH.idTipoCama = TC.idTipoCama
 		INNER JOIN NivelHabitacion NH ON TH.idNivelHabitacion = NH.idNivelHabitacion
 		WHERE
-		H.idHotel = @idHotel;
+		TH.idHotel = @idHotel AND TH.idEstado=1;
 	END
 
 	IF @opcion='C'
@@ -1082,30 +1097,29 @@ GO
 CREATE PROCEDURE SP_GestionHab
 	 @opcion					VARCHAR(3)
 	,@idHabitacion				INT
-	,@noHabitacion				INT	
-	,@noPiso					INT
-	,@idHotel					INT
 	,@idTipoHabitacion			INT
 	,@registradoPor				INT	
 AS
 BEGIN
 	IF @opcion = 'I'
 	BEGIN
+		DECLARE @noHabitacion INT;
+		WHILE 1 = 1
+		BEGIN
+			SET @noHabitacion = FLOOR(RAND() * 1000) + 1;
+
+			IF NOT EXISTS (SELECT 1 FROM Habitacion WHERE noHabitacion = @noHabitacion)
+				BREAK;
+		END
 		INSERT INTO Habitacion(
-			 noHabitacion		
-			,noPiso				
-			,idHotel				
+			 noHabitacion					
 			,idTipoHabitacion	
-			,idDisponibilidad	
 			,registradoPor		
 			,fechaRegistro		
 			,idEstado			
 		) VALUES (
-			 @noHabitacion		
-			,@noPiso				
-			,@idHotel				
+			 @noHabitacion					
 			,@idTipoHabitacion	
-			,1
 			,@registradoPor		
 			,GETDATE()
 			,1
@@ -1118,10 +1132,8 @@ BEGIN
 		H.idHabitacion 'ID',
 		TH.nombre 'Tipo de habitación',
 		H.noHabitacion 'Número de habitación',
-		H.noPiso 'Número de piso',
 		CONCAT(P.nombre,' ',P.apellidoPaterno,' ',P.apellidoMaterno) 'Registrado por',
-		H.fechaRegistro 'Fecha de registro',
-		DH.nombre 'Disponibilidad'
+		H.fechaRegistro 'Fecha de registro'
 		FROM Habitacion H
 		INNER JOIN TipoHabitacion TH
 		ON H.idTipoHabitacion = TH.idTipoHabitacion
@@ -1129,27 +1141,23 @@ BEGIN
 		ON TH.registradoPor = U.idUsuario
 		INNER JOIN Persona P
 		ON U.idPersona = P.idPersona
-		INNER JOIN DisponibilidadHabitacion DH
-		ON H.idDisponibilidad = DH.idDisponibilidad
-		WHERE H.idEstado = 1 AND H.idHotel = @idHotel
+		WHERE H.idEstado = 1 AND H.idHabitacion = @idTipoHabitacion 
 	END
 
-	IF @opcion = 'U'
-	BEGIN
-		UPDATE Habitacion SET
-			 noHabitacion		= 	@noHabitacion		
-			,noPiso				= 	@noPiso			
-			,idTipoHabitacion	= 	@idTipoHabitacion
-		WHERE idHabitacion = @idHabitacion
-	END
+	--IF @opcion = 'U'
+	--BEGIN
+	--	UPDATE Habitacion SET
+	--		 noHabitacion		= 	@noHabitacion		
+	--		,noPiso				= 	@noPiso			
+	--		,idTipoHabitacion	= 	@idTipoHabitacion
+	--	WHERE idHabitacion = @idHabitacion
+	--END
 
 	IF @opcion = 'D'
 	BEGIN
 		DELETE Habitacion WHERE idHabitacion = @idHabitacion
 	END
 END
-
-select * from Habitacion
 
 ---------- GESTION TIPO DE HABITACION ----------
 IF OBJECT_ID('SP_GestionTipoHab') IS NOT NULL
@@ -1162,7 +1170,9 @@ CREATE PROCEDURE SP_GestionTipoHab
 	@idTipoCama			INT, 
 	@costoPersona		MONEY,
 	@capacidadPersonas	INT,
+	@cantHabs			INT,
 	@idNivelHabitacion	INT,
+	@idHotel			INT,
 	@idUsuario			INT, 
 	@opcion				CHAR(1)
 AS
@@ -1175,7 +1185,9 @@ BEGIN
 			idTipoCama,
 			costoPersona,
 			capacidadPersonas,
+			cantHabs,
 			idNivelHabitacion,
+			idHotel,
 			registradoPor,
 			fechaRegistro,
 			idEstado)
@@ -1185,7 +1197,9 @@ BEGIN
 			@idTipoCama,
 			@costoPersona,
 			@capacidadPersonas,
+			@cantHabs,
 			@idNivelHabitacion,
+			@idHotel,
 			@idUsuario,
 			GETDATE(),
 			1);
@@ -1200,6 +1214,7 @@ BEGIN
 		TC.nombre 'Tipo de cama',
 		TH.costoPersona 'Costo por persona',
 		TH.capacidadPersonas 'Capacidad de personas',
+		TH.cantHabs 'Cantidad de habitaciones',
 		NH.nombre 'Nivel de habitacion',
 		CONCAT(P.nombre,' ',P.apellidoPaterno,' ',P.apellidoMaterno) 'Registrado por',
 		TH.fechaRegistro 'Fecha de registro'
@@ -1212,7 +1227,7 @@ BEGIN
 		ON TH.registradoPor = U.idUsuario
 		INNER JOIN Persona P
 		ON U.idPersona = P.idPersona
-		WHERE TH.idEstado = 1;
+		WHERE TH.idEstado = 1 AND idHotel=@idHotel;
 	END
 
 	IF @opcion = 'U'
@@ -1223,6 +1238,7 @@ BEGIN
 			idTipoCama			=	@idTipoCama		  ,
 			costoPersona		=	@costoPersona	  ,
 			capacidadPersonas	=	@capacidadPersonas,
+			cantHabs			=	@cantHabs		  ,
 			idNivelHabitacion	=	@idNivelHabitacion,
 			registradoPor		=	@idUsuario		  ,	
 			fechaRegistro		=	GETDATE()		
@@ -1454,7 +1470,7 @@ BEGIN
 
 	ELSE IF @opcion = 'S' 
 	BEGIN
-		SELECT * FROM VW_Usuarios
+		SELECT 1 FROM VW_Usuarios
 	END
 
 	ELSE IF @opcion = 'U'
@@ -1517,10 +1533,6 @@ exec SP_GestionUsuario
  1,
  0,NULL,0,1
 
- delete persona
-
- Select * from Persona
- Select * from Usuario
 
 
 ---------- BUSQUEDAS ----------
@@ -1574,6 +1586,15 @@ CREATE PROCEDURE SP_MostrarHoteles
 AS
 BEGIN
 	SELECT idHotel 'ID', nombre FROM Hotel;
+END
+---------- MOSTRAR TIPOS DE PAGO ----------
+IF OBJECT_ID('SP_MostrarTiposPago') IS NOT NULL
+	DROP PROCEDURE SP_MostrarTiposPago;
+GO
+CREATE PROCEDURE SP_MostrarTiposPago
+AS
+BEGIN
+	SELECT idMetodoPago 'ID', nombre FROM MetodoPago;
 END
 ---------- MOSTRAR TIPOS DE CAMA ----------
 IF OBJECT_ID('SP_MostrarTiposCama') IS NOT NULL
@@ -1665,3 +1686,6 @@ BEGIN
 	SELECT idEstadoCivil 'ID',nombre FROM EstadoCivil;
 END
 
+
+exec SP_GestionUsuario 'I','carlos@hotmail.com','123','Carlos Adrian','Ruiz','Hernandez','1903184','2002-09-08','Afluente','Villa de las Puentes','MTY','MEX','','8121129313',0,0,NULL,0,1
+exec SP_GestionTipoHab 0,'Love room',1,1000,500,1,5,1000,1000,1004,'I'
